@@ -1,11 +1,11 @@
 {
-  "name": "Bali Planner",
+  "name": "GoBali",
   "short_name": "Bali",
   "display": "standalone",
   "start_url": "./",
   "icons": [
     {
-      "src": "icon-512.png",
+      "src": "app icon.png",
       "sizes": "512x512",
       "type": "image/png"
     }
