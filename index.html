@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Bali Jun 8–15</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FDF7EF;--card:#FFFFFF;--border:#EAE0D4;--border2:#D4C5B4;
+  --ink:#1C1A2E;--ink2:#5A5070;--ink3:#9E97B0;
+  --terra:#E05E20;--terra-l:#F0844A;--terra-bg:#FEF0E8;
+  --teal:#0980A4;--teal-l:#1AACCE;--teal-bg:#E0F5FB;
+  --gold:#C97C0A;--gold-bg:#FEF3DA;
+  --blue:#1B5EB8;--blue-bg:#DBE9FF;
+  --green:#0A9454;--green-bg:#D4F5E8;
+  --sunset:#D63F6E;--sunset-bg:#FDEAF1;
+  --r:14px;--rs:8px;
+  /* Budget palette — mapped to Bali palette */
+  --naf:#C46E8A;--naf-bg:#F8ECF1;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{font-size:16px}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;max-width:480px;margin:0 auto}
+
+/* HEADER */
+.hdr{background:linear-gradient(155deg,#0D2744 0%,#163A5C 45%,#1A3A50 70%,#2A1F3A 100%);color:#F9F5EF;padding:1.5rem 1.25rem 0;position:relative;overflow:hidden}
+.hdr::before{content:'';position:absolute;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,#E05E20 0%,#D63F6E 60%,transparent 100%);opacity:.18;top:-90px;right:-60px;pointer-events:none}
+.hdr::after{content:'';position:absolute;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,#0980A4 0%,#1AACCE 60%,transparent 100%);opacity:.15;bottom:-50px;left:25%;pointer-events:none}
+.hdr-inner{position:relative;z-index:1}
+.hdr-eye{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#F0844A;margin-bottom:.4rem;font-weight:400}
+.hdr-title{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:400;line-height:1.1;margin-bottom:.3rem}
+.hdr-title em{font-style:italic;color:#F0844A}
+.countdown{display:flex;gap:12px;margin:.75rem 0 .9rem;flex-wrap:wrap}
+.cd-box{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:8px 12px;text-align:center;min-width:56px}
+.cd-num{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:400;color:#F9F5EF;line-height:1;display:block}
+.cd-lbl{font-size:10px;color:#8A9EAC;text-transform:uppercase;letter-spacing:.06em;margin-top:2px;display:block}
+.hdr-prog-txt{font-size:12px;color:#7A8EA0;margin-bottom:.6rem}
+.prog-track{height:3px;background:rgba(255,255,255,.1);border-radius:2px;margin-bottom:0}
+.prog-fill{height:3px;border-radius:2px;background:linear-gradient(90deg,var(--teal-l),var(--terra-l));transition:width .4s ease;width:0%}
+
+/* NAV */
+.nav-wrap{background:linear-gradient(90deg,#0D2744,#163A5C);border-top:1px solid rgba(255,255,255,.08)}
+.nav{display:flex;overflow-x:auto;scrollbar-width:none;padding:0 1rem}
+.nav::-webkit-scrollbar{display:none}
+.nb{padding:13px 14px;font-family:'Inter',sans-serif;font-size:12px;font-weight:400;letter-spacing:.03em;color:#7A9AB8;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap;transition:all .15s;flex-shrink:0}
+.nb.on{color:#F0844A;border-bottom-color:#E05E20;font-weight:500}
+
+/* MAIN */
+.main{padding:1.25rem 1rem;padding-bottom:4rem}
+.pane{display:none}.pane.on{display:block;animation:fadeUp .2s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* TYPOGRAPHY */
+.sec-title{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);padding-bottom:8px;border-bottom:1px solid var(--border);margin-bottom:1rem;font-weight:500}
+.note{background:var(--teal-bg);border-left:3px solid var(--teal);border-radius:0 var(--rs) var(--rs) 0;padding:10px 13px;font-size:13px;color:var(--ink2);line-height:1.6;margin-bottom:.9rem}
+.warn{background:var(--terra-bg);border-left:3px solid var(--terra);border-radius:0 var(--rs) var(--rs) 0;padding:10px 13px;font-size:13px;color:var(--terra);line-height:1.6;margin-bottom:.9rem}
+
+/* COLLAPSIBLE CARD */
+.coll{background:var(--card);border:1px solid var(--border);border-radius:var(--r);margin-bottom:.75rem;overflow:hidden;box-shadow:0 1px 4px rgba(13,39,68,.06)}
+.coll-hdr{display:flex;align-items:center;gap:10px;padding:14px 15px;cursor:pointer;user-select:none;transition:background .12s}
+.coll-hdr:active{background:var(--bg)}
+.coll-chev{font-size:12px;color:var(--ink3);transition:transform .2s;flex-shrink:0;margin-left:auto}
+.coll-chev.open{transform:rotate(180deg)}
+.coll-body{border-top:1px solid var(--border);display:none}
+.coll-body.open{display:block}
+
+/* DAY CARD */
+.day-num{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:15px;flex-shrink:0}
+.day-meta{flex:1;min-width:0}
+.day-title{font-size:15px;font-weight:500}
+.day-sub{font-size:12px;color:var(--ink3);margin-top:1px}
+.day-wx{font-size:12px;color:var(--ink3);white-space:nowrap;flex-shrink:0}
+
+/* EVENTS */
+.evt{display:flex;gap:10px;padding:10px 15px;border-bottom:1px solid var(--border);align-items:flex-start;position:relative}
+.evt:last-of-type{border-bottom:none}
+.evt-time{font-size:11px;color:var(--ink3);min-width:50px;flex-shrink:0;padding-top:2px;font-weight:400;font-family:'DM Mono',monospace}
+.evt-dot{width:7px;height:7px;border-radius:50%;border:1.5px solid var(--border2);background:var(--card);flex-shrink:0;margin-top:5px}
+.evt-dot.fixed{background:var(--terra);border-color:var(--terra)}
+.evt-dot.flex{background:var(--teal);border-color:var(--teal)}
+.evt-text{flex:1;font-size:14px;line-height:1.5;color:var(--ink)}
+.evt-actions{display:flex;gap:2px;flex-shrink:0;opacity:0;transition:opacity .15s}
+.evt:hover .evt-actions{opacity:1}
+.evt-btn{background:none;border:none;color:var(--ink3);cursor:pointer;font-size:15px;padding:1px 4px;line-height:1;transition:color .15s;border-radius:4px}
+.evt-btn:hover{color:var(--terra)}
+.evt-btn.edit-btn:hover{color:var(--teal)}
+.evt-edit-row{display:flex;gap:6px;flex-wrap:wrap;padding:8px 12px;background:var(--teal-bg);border-bottom:1px solid var(--border)}
+.evt-edit-row input{padding:6px 9px;border:1px solid var(--border2);border-radius:var(--rs);font-family:'Inter',sans-serif;font-size:13px;background:var(--card);color:var(--ink);outline:none;flex:1;min-width:80px}
+.day-add{display:flex;gap:7px;align-items:center;flex-wrap:wrap;padding:9px 12px;background:var(--bg);border-top:1px solid var(--border)}
+.day-add input,.day-add select{padding:7px 10px;border:1px solid var(--border2);border-radius:var(--rs);font-family:'Inter',sans-serif;font-size:13px;background:var(--card);color:var(--ink);outline:none}
+.day-add input{flex:1;min-width:100px}
+.day-add input::placeholder{color:var(--ink3)}
+.day-add select{color:var(--ink2);font-size:12px}
+.legend{display:flex;gap:14px;margin-bottom:1rem;font-size:13px;color:var(--ink2);flex-wrap:wrap}
+.leg{display:flex;align-items:center;gap:6px}
+.leg-dot{width:8px;height:8px;border-radius:50%}
+
+/* OUTFIT / WARDROBE */
+.outfit-hdr{display:flex;align-items:center;gap:8px;padding:13px 15px}
+.outfit-num{font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--terra);flex-shrink:0}
+.outfit-name{font-size:14px;font-weight:500;flex:1}
+.outfit-type{font-size:11px;padding:2px 9px;border-radius:20px;font-weight:500}
+.ot-activity{background:var(--terra-bg);color:var(--terra)}
+.ot-swim{background:var(--blue-bg);color:var(--blue)}
+.ot-casual{background:var(--bg);color:var(--ink2);border:1px solid var(--border)}
+.ot-sleep{background:var(--gold-bg);color:var(--gold)}
+.outfit-body{padding:4px 0 8px}
+.oi{display:flex;align-items:center;gap:10px;padding:9px 15px;border-bottom:1px solid var(--border);cursor:pointer;user-select:none}
+.oi:last-of-type{border-bottom:none}
+.oi:active{background:var(--bg)}
+.obox{width:20px;height:20px;border:1.5px solid var(--border2);border-radius:5px;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.oi.done .obox{background:var(--teal);border-color:var(--teal)}
+.ock{display:none;color:#fff;font-size:11px;font-weight:700}
+.oi.done .ock{display:block}
+.oi-text{flex:1;font-size:14px;line-height:1.4}
+.oi.done .oi-text{text-decoration:line-through;color:var(--ink3)}
+.oi-hint{font-size:12px;color:var(--ink3);display:block;margin-top:1px}
+.oi-del{opacity:0;background:none;border:none;color:var(--ink3);cursor:pointer;font-size:16px;padding:0 3px;line-height:1;flex-shrink:0;transition:opacity .15s}
+.oi:hover .oi-del{opacity:1}
+.oi-del:hover{color:var(--terra)}
+.outfit-add{display:flex;gap:6px;padding:8px 12px;background:var(--bg);border-top:1px solid var(--border)}
+.outfit-add input{flex:1;padding:7px 10px;border:1px solid var(--border2);border-radius:var(--rs);font-family:'Inter',sans-serif;font-size:13px;background:var(--card);color:var(--ink);outline:none}
+.outfit-add input::placeholder{color:var(--ink3)}
+
+/* PACKING CHECKLIST */
+.cl-prog-wrap{margin-bottom:1.25rem}
+.cl-prog-meta{display:flex;justify-content:space-between;font-size:13px;color:var(--ink2);margin-bottom:7px}
+.cl-prog-track{height:4px;background:var(--border);border-radius:2px}
+.cl-prog-fill{height:4px;border-radius:2px;background:linear-gradient(90deg,var(--teal),var(--teal-l));transition:width .4s}
+.cl-item{display:flex;align-items:flex-start;gap:10px;padding:11px 15px;border-bottom:1px solid var(--border);cursor:pointer;user-select:none;transition:background .1s}
+.cl-item:last-of-type{border-bottom:none}
+.cl-item:active{background:var(--bg)}
+.cl-item.done .cl-label{text-decoration:line-through;color:var(--ink3)}
+.cbox{width:20px;height:20px;border:1.5px solid var(--border2);border-radius:5px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.cl-item.done .cbox{background:var(--teal);border-color:var(--teal)}
+.ck{display:none;color:#fff;font-size:11px;font-weight:700}
+.cl-item.done .ck{display:block}
+.cl-label{font-size:14px;flex:1;line-height:1.5}
+.cl-hint{font-size:12px;color:var(--ink3);display:block;margin-top:2px}
+.cl-del{opacity:0;background:none;border:none;color:var(--ink3);cursor:pointer;font-size:16px;padding:0 3px;transition:opacity .15s;font-family:inherit;line-height:1}
+.cl-item:hover .cl-del{opacity:1}
+.cl-del:hover{color:var(--terra)}
+.add-bar{display:flex;gap:7px;align-items:center;padding:10px 12px;background:var(--bg);border-top:1px solid var(--border)}
+.add-bar input{flex:1;padding:8px 11px;border:1px solid var(--border2);border-radius:var(--rs);font-family:'Inter',sans-serif;font-size:14px;background:var(--card);color:var(--ink);outline:none}
+.add-bar input::placeholder{color:var(--ink3)}
+
+/* BUTTON */
+.btn{padding:8px 16px;background:var(--teal);color:#fff;border:none;border-radius:var(--rs);font-family:'Inter',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:background .15s;white-space:nowrap;flex-shrink:0}
+.btn:active{background:var(--teal-l)}
+.btn-sm{padding:6px 12px;font-size:12px}
+.btn-cancel{background:var(--bg);color:var(--ink2);border:1px solid var(--border2)}
+.btn-cancel:active{background:var(--border)}
+
+/* HALAL */
+.hl-card-inner{padding:14px 15px}
+.hl-name{font-size:15px;font-weight:600;margin-bottom:4px}
+.hl-cert{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:500;padding:2px 9px;border-radius:20px;margin-bottom:8px}
+.hl-desc{font-size:13px;color:var(--ink2);line-height:1.6;margin-bottom:9px}
+.hl-footer{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.hl-maps{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:500;color:var(--teal);text-decoration:none;padding:6px 12px;background:var(--teal-bg);border-radius:20px;transition:all .15s}
+.hl-maps:active{background:var(--teal);color:#fff}
+.hl-dist{font-size:12px;color:var(--ink3)}
+.hl-del-btn{float:right;background:none;border:none;color:var(--ink3);cursor:pointer;font-size:15px;padding:0;line-height:1;opacity:.4}
+.hl-del-btn:hover{opacity:1;color:var(--terra)}
+.hl-action-btn{background:none;border:none;color:var(--ink3);cursor:pointer;font-size:15px;font-family:'Inter',sans-serif;padding:0 3px;line-height:1;transition:color .15s}
+.hl-action-btn.edit:hover{color:var(--teal)}
+.hl-action-btn.del:hover{color:var(--terra)}
+.hl-card-inner .hl-btns{display:flex;gap:4px;justify-content:flex-end;opacity:0;transition:opacity .15s;margin-bottom:2px;min-height:18px}
+.hl-card-inner:hover .hl-btns{opacity:1}
+.hl-edit-row{background:var(--teal-bg);border-bottom:1px solid var(--border);padding:12px 15px}
+.hl-edit-row .form-row{margin-bottom:7px}
+.hl-edit-row .form-row:last-child{margin-bottom:0}
+.sub-add{background:var(--bg);border-top:1px solid var(--border);padding:12px 14px}
+.sub-add-title{font-size:13px;font-weight:500;color:var(--ink2);margin-bottom:9px}
+.form-row{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:7px}
+.form-row:last-child{margin-bottom:0}
+.form-row input,.form-row select{padding:7px 10px;border:1px solid var(--border2);border-radius:var(--rs);font-family:'Inter',sans-serif;font-size:13px;background:var(--card);color:var(--ink);outline:none;flex:1;min-width:120px}
+.form-row input::placeholder{color:var(--ink3)}
+.form-row select{flex:0 0 auto;color:var(--ink2)}
+
+/* PLACES */
+.pl-card-inner{padding:12px 15px;display:flex;align-items:flex-start;gap:10px}
+.pl-left{flex:1;min-width:0}
+.pl-name{font-size:14px;font-weight:600;margin-bottom:3px}
+.pl-type{font-size:11px;padding:2px 8px;border-radius:20px;display:inline-block;margin-bottom:5px;font-weight:500}
+.pl-note{font-size:13px;color:var(--ink2);line-height:1.5}
+.pl-footer{margin-top:7px;display:flex;gap:8px;flex-wrap:wrap}
+.pl-maps{display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:500;color:var(--teal);text-decoration:none;padding:5px 11px;background:var(--teal-bg);border-radius:20px}
+.pl-maps:active{background:var(--teal);color:#fff}
+.pl-right{display:flex;flex-direction:column;gap:6px;align-items:center;flex-shrink:0}
+.pl-heart{width:30px;height:30px;border:1.5px solid var(--border2);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:15px;background:none;transition:all .15s;user-select:none}
+.pl-heart.on{background:var(--terra-bg);border-color:var(--terra-l)}
+.pl-del{background:none;border:none;color:var(--ink3);cursor:pointer;font-size:14px;opacity:.4;transition:opacity .15s}
+.pl-del:hover{opacity:1;color:var(--terra)}
+
+/* PRE-TRIP */
+.pt-hdr{font-size:13px;font-weight:600;padding:12px 15px;background:var(--bg);border-bottom:1px solid var(--border);color:var(--ink2);display:flex;align-items:center;gap:8px}
+
+/* TAGS */
+.tag{display:inline-flex;align-items:center;font-size:11px;font-weight:500;padding:2px 8px;border-radius:20px}
+.tg{background:var(--teal-bg);color:var(--teal)}
+.tt{background:var(--terra-bg);color:var(--terra)}
+.tgold{background:var(--gold-bg);color:var(--gold)}
+.tblue{background:var(--blue-bg);color:var(--blue)}
+.tgreen{background:var(--green-bg);color:var(--green)}
+
+/* SAVE NOTICE */
+.save-notice{position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#0D2744,#163A5C);color:#fff;padding:8px 18px;border-radius:20px;font-size:12px;opacity:0;transition:opacity .3s;pointer-events:none;z-index:99;white-space:nowrap;border:1px solid rgba(255,255,255,.15)}
+.save-notice.show{opacity:1}
+
+/* ─── BUDGET SECTION ─────────────────────────────── */
+.budget-pane{margin:-1.25rem -1rem 0;padding-bottom:0}
+
+/* Sub-nav */
+.b-subnav{display:flex;background:rgba(9,128,164,.06);border-bottom:1px solid var(--border);padding:0 1rem}
+.btab{padding:11px 16px;font-size:12px;font-weight:400;color:var(--ink3);background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap;transition:all .15s;flex-shrink:0;font-family:'Inter',sans-serif}
+.btab.active{color:var(--teal);border-bottom-color:var(--teal);font-weight:500}
+.bpage{display:none}.bpage.active{display:block}
+
+/* Rate bar */
+.rate-bar{background:var(--teal-bg);border-bottom:1px solid rgba(9,128,164,.2);padding:9px 1rem;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.rate-bar label{color:var(--ink2);font-size:12px;white-space:nowrap}
+.rate-bar input{font-family:'DM Mono',monospace;font-size:13px;font-weight:500;border:1px solid rgba(9,128,164,.3);border-radius:6px;padding:4px 8px;width:86px;background:var(--card);color:var(--teal)}
+.rate-bar span{color:var(--ink3);font-size:11px}
+
+/* Metrics */
+.b-metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:14px 1rem 0}
+.b-metric{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:13px 14px;box-shadow:0 1px 4px rgba(13,39,68,.06)}
+.b-mlabel{font-size:10px;color:var(--ink3);text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px}
+.b-mval{font-size:17px;font-weight:600;font-family:'DM Mono',monospace;letter-spacing:-.5px}
+.b-msub{font-size:10px;color:var(--ink3);font-family:'DM Mono',monospace;margin-top:1px}
+
+/* Filter pills */
+.filter-bar{padding:12px 1rem 0;display:flex;gap:7px;overflow-x:auto;scrollbar-width:none}
+.filter-bar::-webkit-scrollbar{display:none}
+.pill{font-size:12px;font-weight:500;padding:5px 12px;border-radius:20px;border:1.5px solid var(--border);background:var(--card);color:var(--ink2);cursor:pointer;white-space:nowrap;flex-shrink:0;transition:all .18s}
+.pill.active{background:var(--terra);border-color:var(--terra);color:#fff}
+
+/* Section header */
+.section-header{display:flex;justify-content:space-between;align-items:center;padding:14px 1rem 10px}
+.section-header h2{font-family:'Playfair Display',serif;font-size:16px;font-weight:400;color:var(--ink2);font-style:italic}
+.add-btn{background:var(--terra);color:#fff;border:none;border-radius:var(--rs);padding:7px 14px;font-size:13px;font-weight:500;font-family:'Inter',sans-serif;cursor:pointer;transition:opacity .15s}
+.add-btn:active{opacity:.8}
+
+/* Expense rows */
+.rows{padding:0 1rem;display:flex;flex-direction:column;gap:10px}
+.row-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:0 1px 4px rgba(13,39,68,.06)}
+.row-card.hidden{display:none}
+.row-top{padding:11px 13px 9px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:10px}
+.row-top-left{flex:1;min-width:0}
+.row-desc{font-size:15px;font-weight:500;border:none;background:transparent;color:var(--ink);width:100%;font-family:'Inter',sans-serif;padding:0;outline:none}
+.row-desc::placeholder{color:var(--ink3);font-weight:400}
+.row-meta{display:flex;gap:5px;margin-top:7px;flex-wrap:wrap;align-items:center}
+
+/* Who paid selects */
+select.small{font-family:'Inter',sans-serif;font-size:11px;font-weight:500;border:1.5px solid var(--border);border-radius:20px;padding:3px 10px;background:var(--bg);color:var(--ink2);cursor:pointer;outline:none;-webkit-appearance:none;max-width:140px}
+select.small.p-me{background:var(--green-bg);color:var(--green);border-color:var(--green)}
+select.small.p-dad{background:var(--gold-bg);color:var(--gold);border-color:var(--gold)}
+select.small.p-naf{background:var(--naf-bg);color:var(--naf);border-color:var(--naf)}
+select.small.s-cat{background:var(--bg);color:var(--ink2);border-color:var(--border)}
+
+.btag{font-size:10px;font-weight:500;padding:2px 8px;border-radius:20px;white-space:nowrap}
+.btag-paid{background:var(--green-bg);color:var(--green)}
+.btag-partial{background:var(--gold-bg);color:var(--gold)}
+.btag-unpaid{background:var(--terra-bg);color:var(--terra)}
+
+.del-btn{background:none;border:none;color:var(--ink3);font-size:20px;cursor:pointer;padding:0 2px;line-height:1;flex-shrink:0}
+.del-btn:active{color:var(--terra)}
+
+/* Amounts */
+.row-amounts{display:grid;grid-template-columns:1fr 1fr}
+.amount-cell{padding:9px 13px;border-right:1px solid var(--border)}
+.amount-cell:last-child{border-right:none}
+.alabel{font-size:10px;color:var(--ink3);margin-bottom:3px;display:flex;align-items:center;gap:4px}
+.cbadge{font-size:9px;font-weight:600;padding:1px 5px;border-radius:4px;background:var(--bg);color:var(--ink2);border:1px solid var(--border)}
+input.amount{font-family:'DM Mono',monospace;font-size:15px;font-weight:500;border:none;background:transparent;color:var(--ink);width:100%;padding:0;outline:none}
+input.amount::placeholder{color:var(--ink3);font-weight:400;font-size:14px}
+input.amount::-webkit-outer-spin-button,input.amount::-webkit-inner-spin-button{-webkit-appearance:none}
+input[type=number]{-moz-appearance:textfield}
+.cval{font-size:10px;color:var(--ink3);font-family:'DM Mono',monospace;margin-top:1px;min-height:13px}
+
+/* Split */
+.split-toggle{padding:7px 13px;background:var(--bg);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;cursor:pointer;user-select:none}
+.split-toggle span{font-size:11px;color:var(--ink3);font-weight:500}
+.split-toggle .arrow{font-size:10px;color:var(--ink3);transition:transform .2s}
+.split-toggle.open .arrow{transform:rotate(180deg)}
+.split-toggle.has-data span{color:var(--terra);font-weight:600}
+.split-toggle.has-data{background:var(--terra-bg)}
+.split-body{display:none;border-top:1px solid var(--border);background:var(--bg);padding:10px 13px}
+.split-body.open{display:block}
+.split-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+.split-block{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:8px 10px}
+.split-who{font-size:11px;font-weight:600;margin-bottom:4px}
+.split-who.me{color:var(--green)}.split-who.naf{color:var(--naf)}
+input.sinput{font-family:'DM Mono',monospace;font-size:14px;font-weight:500;border:none;background:transparent;color:var(--ink);width:100%;padding:0;outline:none}
+input.sinput::-webkit-outer-spin-button,input.sinput::-webkit-inner-spin-button{-webkit-appearance:none}
+.sconv{font-size:10px;color:var(--ink3);font-family:'DM Mono',monospace;margin-top:2px;min-height:13px}
+.split-note{font-size:11px;padding:6px 8px;border-radius:7px;background:var(--card);border:1px solid var(--border);color:var(--ink2)}
+.split-note.ok{border-color:var(--green);background:var(--green-bg);color:var(--green)}
+.split-note.warn{border-color:var(--terra);background:var(--terra-bg);color:var(--terra)}
+
+/* Totals card */
+.totals-card{margin:14px 1rem 0;background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:0 1px 4px rgba(13,39,68,.06)}
+.trow{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--border)}
+.trow:last-child{border-bottom:none}
+.tcell{padding:10px 13px;border-right:1px solid var(--border);font-size:12px}
+.tcell:last-child{border-right:none}
+.tlabel{color:var(--ink3);margin-bottom:2px;font-size:10px;text-transform:uppercase;letter-spacing:.4px}
+.tval{font-family:'DM Mono',monospace;font-weight:600;font-size:14px}
+.tsub{font-size:10px;color:var(--ink3);font-family:'DM Mono',monospace;margin-top:1px}
+.empty-state{text-align:center;padding:40px 1rem;color:var(--ink3);font-size:14px}
+.footer-note{text-align:center;font-size:11px;color:var(--ink3);padding:16px 1rem 0}
+
+/* Budget summary */
+.sum-page{padding:14px 1rem;display:flex;flex-direction:column;gap:12px}
+.scard{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:0 1px 4px rgba(13,39,68,.06)}
+.scard-head{padding:12px 14px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.scard-head h3{font-family:'Playfair Display',serif;font-size:16px;font-weight:400}
+.sbig{font-family:'DM Mono',monospace;font-size:20px;font-weight:600}
+.sline{display:flex;justify-content:space-between;align-items:center;padding:8px 14px;border-bottom:1px solid var(--border);font-size:13px}
+.sline:last-child{border-bottom:none}
+.sline.tint{background:var(--bg)}
+.sline .l{color:var(--ink2)}.sline .v{font-family:'DM Mono',monospace;font-weight:500;font-size:13px}
+.sline .s{font-size:10px;color:var(--ink3);font-family:'DM Mono',monospace}
+.bl-card{background:linear-gradient(135deg,var(--terra) 0%,#C43C00 100%);border-radius:var(--r);padding:16px;box-shadow:0 2px 12px rgba(224,94,32,.25)}
+.bl-card h3{font-size:10px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.bl-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.bli{background:rgba(255,255,255,.13);border-radius:10px;padding:11px 12px}
+.bli .l{font-size:10px;color:rgba(255,255,255,.6);margin-bottom:4px;text-transform:uppercase;letter-spacing:.4px}
+.bli .v{font-family:'DM Mono',monospace;font-size:17px;font-weight:600;color:#fff}
+.bli .s{font-size:10px;color:rgba(255,255,255,.5);font-family:'DM Mono',monospace;margin-top:2px}
+.bli.highlight{background:rgba(255,255,255,.25)}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-inner">
+    <div class="hdr-eye">Dubai → Bali · Jun 8–15, 2026</div>
+    <div class="hdr-title">Bali, <em>Indonesia</em></div>
+    <div class="countdown" id="countdown">
+      <div class="cd-box"><span class="cd-num" id="cd-d">—</span><span class="cd-lbl">days</span></div>
+      <div class="cd-box"><span class="cd-num" id="cd-h">—</span><span class="cd-lbl">hrs</span></div>
+      <div class="cd-box"><span class="cd-num" id="cd-m">—</span><span class="cd-lbl">mins</span></div>
+      <div class="cd-box" style="align-self:center;padding:6px 12px"><span style="font-size:12px;color:#F0844A">until takeoff ✈</span></div>
+    </div>
+    <div class="hdr-prog-txt" id="hdr-txt">Loading...</div>
+    <div class="prog-track"><div class="prog-fill" id="hdr-fill"></div></div>
+  </div>
+</div>
+<div class="nav-wrap">
+  <div class="nav">
+    <button class="nb on" onclick="tab('itin',this)">Itinerary</button>
+    <button class="nb" onclick="tab('pack',this)">Packing</button>
+    <button class="nb" onclick="tab('clothes',this)">Wardrobe</button>
+    <button class="nb" onclick="tab('halal',this)">Halal food</button>
+    <button class="nb" onclick="tab('places',this)">Places</button>
+    <button class="nb" onclick="tab('pretrip',this)">Pre-trip</button>
+    <button class="nb" onclick="tab('budget',this)">Budget</button>
+  </div>
+</div>
+
+<div class="main">
+
+<!-- ITINERARY -->
+<div id="itin" class="pane on">
+  <div class="legend">
+    <div class="leg"><div class="leg-dot" style="background:var(--terra)"></div>Fixed</div>
+    <div class="leg"><div class="leg-dot" style="background:var(--teal)"></div>Flexible</div>
+  </div>
+  <div id="days-wrap"></div>
+</div>
+
+<!-- PACKING -->
+<div id="pack" class="pane">
+  <div class="cl-prog-wrap">
+    <div class="cl-prog-meta"><span id="prog-lbl">0 of 0 packed</span><span id="prog-pct">0%</span></div>
+    <div class="cl-prog-track"><div class="cl-prog-fill" id="prog-fill"></div></div>
+  </div>
+  <div id="cl-wrap"></div>
+</div>
+
+<!-- WARDROBE -->
+<div id="clothes" class="pane">
+  <div class="note">Tick each item as you pack it. Add items to any outfit or day. Tap a day to expand.</div>
+  <div id="wrd-days"></div>
+</div>
+
+<!-- HALAL -->
+<div id="halal" class="pane">
+  <div class="note">MUI certified = 100% halal. Pork-free / alcohol-free warungs are safe too. North Bali (Lovina) is majority Muslim — halal is everywhere there.</div>
+  <div id="halal-wrap"></div>
+</div>
+
+<!-- PLACES -->
+<div id="places" class="pane">
+  <div class="note">Tap ❤ to wishlist a spot. Add your own finds. Each city is collapsible.</div>
+  <div id="places-wrap"></div>
+</div>
+
+<!-- PRE-TRIP -->
+<div id="pretrip" class="pane">
+  <div class="warn">Complete ALL of these before Jun 8. Some require doing online 48–72 hrs before arrival.</div>
+  <div id="pt-wrap"></div>
+</div>
+
+<!-- BUDGET -->
+<div id="budget" class="pane">
+  <div class="budget-pane">
+    <div class="b-subnav">
+      <button class="btab active" data-btab="expenses">Expenses</button>
+      <button class="btab" data-btab="summary">Summary</button>
+    </div>
+    <div class="rate-bar">
+      <label>1 AED =</label>
+      <input type="number" id="rate" value="4300" step="10">
+      <label>IDR</label>
+      <span>· update to today's rate</span>
+    </div>
+
+    <!-- EXPENSES PAGE -->
+    <div class="bpage active" id="bpage-expenses">
+      <div class="b-metrics">
+        <div class="b-metric"><div class="b-mlabel">Total spend</div><div class="b-mval" style="color:var(--terra)" id="m-total">AED 0</div><div class="b-msub" id="m-total-i"></div></div>
+        <div class="b-metric"><div class="b-mlabel">Still owed</div><div class="b-mval" style="color:var(--terra)" id="m-owed">AED 0</div><div class="b-msub" id="m-owed-i"></div></div>
+        <div class="b-metric"><div class="b-mlabel">Paid so far</div><div class="b-mval" style="color:var(--green)" id="m-paid">AED 0</div><div class="b-msub" id="m-paid-i"></div></div>
+        <div class="b-metric"><div class="b-mlabel">Items</div><div class="b-mval" id="m-count">0</div><div class="b-msub" id="m-pcount"></div></div>
+      </div>
+      <div class="filter-bar" id="filter-bar"></div>
+      <div class="section-header">
+        <h2 id="filter-label">All expenses</h2>
+        <button class="add-btn" id="add-btn">+ Add item</button>
+      </div>
+      <div class="rows" id="rows"></div>
+      <div class="totals-card">
+        <div class="trow">
+          <div class="tcell"><div class="tlabel">Total cost</div><div class="tval" style="color:var(--terra)" id="ft-total">—</div><div class="tsub" id="ft-total-i"></div></div>
+          <div class="tcell"><div class="tlabel">Total paid</div><div class="tval" style="color:var(--green)" id="ft-paid">—</div><div class="tsub" id="ft-paid-i"></div></div>
+        </div>
+        <div class="trow">
+          <div class="tcell"><div class="tlabel">I owe Dad</div><div class="tval" style="color:var(--gold)" id="ft-dad">—</div></div>
+          <div class="tcell"><div class="tlabel">Me &amp; Nafeesa net</div><div class="tval" style="color:var(--naf)" id="ft-net">—</div></div>
+        </div>
+      </div>
+      <p class="footer-note">Auto-saves · Tap any field to edit</p>
+    </div>
+
+    <!-- SUMMARY PAGE -->
+    <div class="bpage" id="bpage-summary">
+      <div class="sum-page" id="sum-content"></div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /main -->
+<div class="save-notice" id="save-notice">Saved ✓</div>
+
+<script>
+// ─── PLANNER DATA ──────────────────────────────────────
+const DAYS=[
+  {n:1,date:"Jun 8",title:"Arrival day",city:"Dubai → Ubud",bg:"#286860",tc:"#fff",wx:"28°C ☀",evts:[
+    {t:"07:00",x:"Depart Dubai",tp:"fixed"},
+    {t:"16:30",x:"Land at Ngurah Rai Airport, Bali",tp:"fixed"},
+    {t:"—",x:"Immigration + baggage claim + e-VOA if not done online",tp:"fixed"},
+    {t:"—",x:"Private transfer to Ubud hotel (~1.5 hrs)",tp:"fixed"},
+    {t:"~19:00",x:"Check in to hotel",tp:"fixed"},
+    {t:"Evening",x:"Settle in, freshen up",tp:"flex"},
+    {t:"Dinner",x:"Arabian Knight Ubud — halal confirmed, open till 2am",tp:"flex"}
+  ]},
+  {n:2,date:"Jun 9",title:"ATV + river rafting",city:"Payungan Village, Ubud",bg:"#E05E20",tc:"#fff",wx:"28°C ☀",evts:[
+    {t:"Morning",x:"Breakfast — wear ATV clothes (they will be ruined)",tp:"flex"},
+    {t:"—",x:"ATV ride + river rafting, Payungan — lunch included",tp:"fixed"},
+    {t:"After",x:"Shower + change on-site",tp:"flex"},
+    {t:"Afternoon",x:"Tegalalang Rice Terraces (15 min, IDR 50k)",tp:"flex"},
+    {t:"Evening",x:"Ubud Art Market / Monkey Forest street",tp:"flex"},
+    {t:"Dinner",x:"Queen's Tandoor or Arabian Knight",tp:"flex"}
+  ]},
+  {n:3,date:"Jun 10",title:"Mt Batur sunrise trek",city:"Ubud",bg:"#2A1F3A",tc:"#fff",wx:"28°C / 10°C summit",evts:[
+    {t:"2:00am",x:"⚠ Wake up — set 2 alarms! Pickup 2–3am",tp:"fixed"},
+    {t:"~5:30am",x:"Sunrise at Batur summit — breakfast included",tp:"fixed"},
+    {t:"~11:00",x:"Back in Ubud — REST",tp:"fixed"},
+    {t:"Afternoon",x:"Spa day (Balinese massage ~IDR 150–300k/hr)",tp:"flex"},
+    {t:"Dinner",x:"Nasi Ayam Bu Mangku (local, pork-free) or rest in",tp:"flex"}
+  ]},
+  {n:4,date:"Jun 11",title:"Ubud → Lovina via Bedugul",city:"Transfer day",bg:"#1B5EB8",tc:"#fff",wx:"22–30°C 🌤",evts:[
+    {t:"Morning",x:"Check out of Ubud",tp:"fixed"},
+    {t:"—",x:"Transfer to Lovina via Bedugul + Lake Bratan — lunch included",tp:"fixed"},
+    {t:"Afternoon",x:"Arrive Lovina, check in",tp:"fixed"},
+    {t:"Evening",x:"Sunset walk on the beach, local halal warungs",tp:"flex"}
+  ]},
+  {n:5,date:"Jun 12",title:"Dolphin watch + snorkeling",city:"Lovina",bg:"#1B5EB8",tc:"#fff",wx:"31°C ☀ calm",evts:[
+    {t:"⚠ ~07:30",x:"Wake up — dolphin boat check-in at 8:30am",tp:"fixed"},
+    {t:"08:30",x:"Dolphin watch + snorkeling, Lovina reef",tp:"fixed"},
+    {t:"Midday",x:"Back to hotel, shower + rest",tp:"flex"},
+    {t:"Afternoon",x:"Banjar Hot Springs OR Brahma Vihara monastery",tp:"flex"},
+    {t:"Dinner",x:"Beachfront halal seafood warungs",tp:"flex"}
+  ]},
+  {n:6,date:"Jun 13",title:"Lovina → Sanur via Kintamani",city:"Transfer day",bg:"#2A1F3A",tc:"#fff",wx:"28–31°C ☀",evts:[
+    {t:"Morning",x:"Check out of Lovina",tp:"fixed"},
+    {t:"—",x:"Transfer to Sanur via Kintamani overlook — lunch included",tp:"fixed"},
+    {t:"Afternoon",x:"Arrive Sanur, check in",tp:"fixed"},
+    {t:"Evening",x:"Sanur boardwalk — 5km sunset walk with cafes",tp:"flex"}
+  ]},
+  {n:7,date:"Jun 14",title:"Snorkeling — Lembongan",city:"Sanur → Nusa Lembongan",bg:"#286860",tc:"#fff",wx:"30°C ☀ crystal",evts:[
+    {t:"Morning",x:"Fast boat from Sanur Harbour to Lembongan (~30 min) — lunch included",tp:"fixed"},
+    {t:"—",x:"Snorkeling — turtles, coral, crystal water",tp:"fixed"},
+    {t:"Afternoon",x:"Return to Sanur, rest + shopping",tp:"flex"},
+    {t:"Dinner",x:"Warung Mina (halal certified) — final dinner! Pack tonight.",tp:"flex"}
+  ]},
+  {n:8,date:"Jun 15",title:"Departure day",city:"Sanur → Dubai",bg:"#C97C0A",tc:"#fff",wx:"29°C ☀",evts:[
+    {t:"Morning",x:"Check out",tp:"fixed"},
+    {t:"—",x:"Private transfer to Ngurah Rai Airport (confirm time with operator)",tp:"fixed"},
+    {t:"~19:00",x:"Depart Bali for Dubai",tp:"fixed"},
+    {t:"Tip",x:"Spend remaining IDR at airport before boarding",tp:"flex"}
+  ]}
+];
+
+const CL={
+  "Hijabi essentials 🧕":[
+    {t:"Shattaf / portable bidet (shatafa)",h:"Most tourist hotels won't have one — non-negotiable"},
+    {t:"Prayer mat"},
+    {t:"Hijab underscarves / inner caps ×5",h:"Humidity = sweat through them daily"},
+    {t:"Safety pins ×25+",h:"Pack double — the ocean takes them"},
+    {t:"Sports hijabs ×2",h:"For rafting, snorkeling, dolphin watch"},
+    {t:"Warm jacket / layer for Batur summit",h:"10–15°C at 2am — non-negotiable"}
+  ],
+  "Documents 📄":[
+    {t:"Passport (valid 6+ months from Jun 8)"},
+    {t:"UAE residency visa / Emirates ID",h:"Needed for UAE re-entry"},
+    {t:"Indonesia e-VOA confirmed",h:"molina.imigrasi.go.id (~USD 35)"},
+    {t:"Indonesia digital arrival card completed",h:"inaportpass.imigrasi.go.id — fill in 24–48 hrs before"},
+    {t:"Travel insurance downloaded"},
+    {t:"Hotel booking confirmations offline"},
+    {t:"Tour operator contact saved"},
+    {t:"Flight tickets downloaded"}
+  ],
+  "Tech & power 🔌":[
+    {t:"Type C / Type F plug adapter",h:"UAE Type G won't fit — buy before leaving Dubai"},
+    {t:"Small universal power strip",h:"One adapter + strip = charge everything"},
+    {t:"Power bank 20,000mAh × 2",h:"Essential for Batur trek + water days"},
+    {t:"Phone charger cables"},
+    {t:"GoPro / waterproof camera + batteries + memory card"},
+    {t:"Offline Google Maps downloaded for Bali"},
+    {t:"Local SIM or roaming plan",h:"Telkomsel / XL Axiata at Bali airport"}
+  ],
+  "Sun & skin ☀️":[
+    {t:"SPF 50+ sunscreen — large bottle",h:"Reapply every 2 hrs on water days"},
+    {t:"After-sun / aloe vera gel"},
+    {t:"DEET insect repellent",h:"Dengue in Bali — apply at dusk"},
+    {t:"Microfiber quick-dry towel"}
+  ],
+  "Health & meds 💊":[
+    {t:"Any prescription meds (extra supply)"},
+    {t:"Antidiarrheal + antihistamine + paracetamol"},
+    {t:"Rehydration sachets / electrolytes",h:"Critical for Batur trek + hot days"},
+    {t:"Motion sickness pills",h:"Winding mountain roads to Lovina + Kintamani"},
+    {t:"Band-aids + antiseptic cream"}
+  ],
+  "Money 💵":[
+    {t:"UAE bank notified about Indonesia travel"},
+    {t:"AED cash withdrawn (aim AED 600–900 total)"},
+    {t:"Dry bag / waterproof pouch for cash on water days"}
+  ]
+};
+
+const WRD=[
+  {date:"Jun 8",label:"Arrival day",outfits:[
+    {name:"Travel outfit (plane)",type:"casual",items:[
+      {t:"Comfortable abaya or long tunic"},{t:"Loose wide-leg pants"},{t:"Breathable jersey hijab"},{t:"Slip-on shoes / loafers"},{t:"Neck pillow"}
+    ]},
+    {name:"Pyjamas",type:"sleep",items:[
+      {t:"Pyjama top"},{t:"Pyjama bottoms"},{t:"Hair scrunchie / bonnet"}
+    ]}
+  ]},
+  {date:"Jun 9",label:"ATV + Rafting",outfits:[
+    {name:"Outfit 1 — Activity (will be ruined!)",type:"activity",items:[
+      {t:"Old long-sleeve top",h:"Will get muddy"},{t:"Athletic leggings",h:"Old pair"},{t:"Sports hijab — stays put when wet"},{t:"Old closed-toe shoes or sport sandals"}
+    ]},
+    {name:"Outfit 2 — Casual stroll (after)",type:"casual",items:[
+      {t:"Fresh casual top"},{t:"Loose pants or midi skirt"},{t:"Clean hijab"},{t:"Sandals"}
+    ]},
+    {name:"Pyjamas",type:"sleep",items:[
+      {t:"Pyjama set"},{t:"Hair scrunchie / bonnet"}
+    ]}
+  ]},
+  {date:"Jun 10",label:"Batur trek",outfits:[
+    {name:"Outfit 1 — Trek (2am!)",type:"activity",items:[
+      {t:"Warm jacket / layer — 10°C at summit!",h:"Non-negotiable"},{t:"Trekking pants or thick leggings"},{t:"Moisture-wicking long-sleeve top"},{t:"Sports hijab"},{t:"Grip sneakers or trekking shoes"}
+    ]},
+    {name:"Outfit 2 — Spa afternoon",type:"casual",items:[
+      {t:"Loose comfy tunic + pants"},{t:"Clean hijab"},{t:"Sandals"}
+    ]},
+    {name:"Pyjamas",type:"sleep",items:[
+      {t:"Pyjama set"},{t:"Hair scrunchie / bonnet"}
+    ]}
+  ]},
+  {date:"Jun 11",label:"Transfer to Lovina",outfits:[
+    {name:"Travel outfit",type:"casual",items:[
+      {t:"Loose tunic + pants (comfy for long drive)"},{t:"Light breathable hijab"},{t:"Sandals"}
+    ]},
+    {name:"Pyjamas",type:"sleep",items:[
+      {t:"Pyjama set"},{t:"Hair scrunchie / bonnet"}
+    ]}
+  ]},
+  {date:"Jun 12",label:"Dolphin watch + Snorkeling",outfits:[
+    {name:"Outfit 1 — Water (8:30am!)",type:"swim",items:[
+      {t:"Burkini / rash guard + leggings — Set 1"},{t:"Swim hijab — fast drying"},{t:"Water shoes / sandals"},{t:"Rash guard for sun protection on boat"}
+    ]},
+    {name:"Outfit 2 — After / afternoon",type:"casual",items:[
+      {t:"Dry change of clothes — pack separately!",h:"Keep accessible"},{t:"Clean hijab"},{t:"Sandals or flip flops"}
+    ]},
+    {name:"Pyjamas",type:"sleep",items:[
+      {t:"Pyjama set"},{t:"Hair scrunchie / bonnet"}
+    ]}
+  ]},
+  {date:"Jun 13",label:"Transfer to Sanur",outfits:[
+    {name:"Travel outfit",type:"casual",items:[
+      {t:"Comfy loose tunic + pants"},{t:"Light airy hijab"},{t:"Sandals"}
+    ]},
+    {name:"Pyjamas",type:"sleep",items:[
+      {t:"Pyjama set"},{t:"Hair scrunchie / bonnet"}
+    ]}
+  ]},
+  {date:"Jun 14",label:"Snorkeling — Lembongan",outfits:[
+    {name:"Outfit 1 — Water",type:"swim",items:[
+      {t:"Burkini / rash guard + leggings — Set 2 (fresh!)"},{t:"Swim hijab"},{t:"Rash guard"}
+    ]},
+    {name:"Outfit 2 — Final dinner 🎉",type:"casual",items:[
+      {t:"Nicer casual top + skirt or trousers"},{t:"Dressy / embroidered hijab"},{t:"Nice sandals or shoes"}
+    ]},
+    {name:"Pyjamas",type:"sleep",items:[
+      {t:"Pyjama set"},{t:"Hair scrunchie / bonnet"}
+    ]}
+  ]},
+  {date:"Jun 15",label:"Departure day",outfits:[
+    {name:"Travel outfit (home!)",type:"casual",items:[
+      {t:"Comfortable travel abaya or long tunic"},{t:"Loose pants"},{t:"Clean hijab"},{t:"Easy slip-on shoes"}
+    ]}
+  ]}
+];
+
+const HALAL_DATA={
+  "Ubud":{note:"Jun 8–11",places:[
+    {name:"Arabian Knight Ubud",cert:"100% Halal + MUI + Musholla",certCls:"tgreen",desc:"Middle Eastern — lamb mandi, shawarma, mezze. On-site prayer room. Open 9am–2am daily. Best for arrival dinner.",maps:"https://maps.google.com/?q=Arabian+Knight+Ubud",walk:"8 min walk",car:"3 min drive"},
+    {name:"Queen's Tandoor",cert:"100% Halal",certCls:"tgreen",desc:"Indian — curries, tandoori, naan. Popular with Muslim travellers. Also in Sanur.",maps:"https://maps.google.com/?q=Queens+Tandoor+Ubud+Bali",walk:"10 min walk",car:"3 min drive"},
+    {name:"Nasi Ayam Bu Mangku",cert:"Pork-free · Muslim-friendly",certCls:"tgold",desc:"Local warung — chicken rice, satay lilit, sambal. Affordable and authentic. In Kedewatan, slightly outside central Ubud.",maps:"https://maps.google.com/?q=Nasi+Ayam+Kedewatan+Bu+Mangku+Ubud",walk:"~35 min walk",car:"10 min drive"}
+  ]},
+  "Lovina":{note:"Jun 11–13",places:[
+    {name:"Beach strip warungs",cert:"Halal everywhere — Muslim-majority area",certCls:"tgreen",desc:"Halal is the default in North Bali. Walk the beach strip from Frangipani Beach Hotel — warungs right on your doorstep. Grilled fish, nasi campur, mie goreng.",maps:"https://maps.google.com/?q=Lovina+Beach+Bali+restaurants",walk:"2–5 min walk",car:"—"},
+    {name:"Search 'halal near me' on arrival",cert:"Tip",certCls:"tblue",desc:"Download offline Lovina map before flying — signal can be patchy. Search 'warung halal' on arrival.",maps:"https://maps.google.com/",walk:"—",car:"—"}
+  ]},
+  "Sanur":{note:"Jun 13–15",places:[
+    {name:"Warung Mina",cert:"MUI Halal certified",certCls:"tgreen",desc:"Seafood — grilled fish, prawn curry, fresh catch. Very popular with Muslim travellers. Good final dinner.",maps:"https://maps.google.com/?q=Warung+Mina+Sanur+Bali",walk:"~12 min walk",car:"4 min drive"},
+    {name:"Warung Mak Beng",cert:"Pork-free · no alcohol · since 1941",certCls:"tgold",desc:"Bali legend. Fried fish, spicy soup, rice, sambal. Sells out by 2–3pm — go for lunch.",maps:"https://maps.google.com/?q=Warung+Mak+Beng+Sanur",walk:"~7 min walk",car:"2 min drive"},
+    {name:"Sindhu Night Market",cert:"Many Muslim-owned stalls",certCls:"tgold",desc:"Evening market — nasi goreng, satay, snacks. Very cheap and lively. Right on the beach road near Grand Palace.",maps:"https://maps.google.com/?q=Sindhu+Market+Sanur+Bali",walk:"5 min walk",car:"2 min drive"}
+  ]}
+};
+
+const PLACES_INIT={
+  "Ubud":[
+    {name:"Tegalalang Rice Terraces",type:"nature",note:"IDR 50k entry. Best in afternoon light. 15 min from town.",maps:"https://maps.google.com/?q=Tegalalang+Rice+Terraces"},
+    {name:"Ubud Art Market",type:"shopping",note:"Open daily. Batik, handmade goods. Bargain hard.",maps:"https://maps.google.com/?q=Ubud+Art+Market"},
+    {name:"Ubud Palace",type:"landmark",note:"Free to view outside. Beautiful at night.",maps:"https://maps.google.com/?q=Ubud+Palace+Bali"},
+    {name:"Semara Ratih Coffee",type:"cafe",note:"Gorgeous rice terrace view cafe.",maps:"https://maps.google.com/?q=Semara+Ratih+Ubud"},
+    {name:"Jalan Monkey Forest",type:"shopping",note:"Main strip — boutiques, galleries, warungs.",maps:"https://maps.google.com/?q=Monkey+Forest+Road+Ubud"}
+  ],
+  "Lovina":[
+    {name:"Banjar Hot Springs",type:"nature",note:"Volcanic hot pools, ~15 min away. IDR 20k.",maps:"https://maps.google.com/?q=Banjar+Hot+Springs+Bali"},
+    {name:"Brahma Vihara Arama",type:"landmark",note:"Buddhist monastery with hilltop views.",maps:"https://maps.google.com/?q=Brahma+Vihara+Arama"},
+    {name:"Lovina Beach",type:"beach",note:"Black sand beach. Quiet and very local.",maps:"https://maps.google.com/?q=Lovina+Beach+Bali"}
+  ],
+  "Sanur":[
+    {name:"Sanur Boardwalk",type:"nature",note:"5km beachside walk. Cafes + shops. Best at sunset.",maps:"https://maps.google.com/?q=Sanur+Beach+Boardwalk+Bali"},
+    {name:"Sindhu Night Market",type:"food",note:"Evening market for snacks and souvenirs.",maps:"https://maps.google.com/?q=Sindhu+Market+Sanur"},
+    {name:"Museum Le Mayeur",type:"landmark",note:"Beachside colonial museum in a Balinese compound.",maps:"https://maps.google.com/?q=Museum+Le+Mayeur+Sanur"}
+  ]
+};
+
+const PRETRIP={
+  "🛂 Visa & immigration":[
+    {t:"Apply for Indonesia e-VOA online",h:"molina.imigrasi.go.id — ~USD 35. Do this 1+ week before."},
+    {t:"Complete Indonesia Digital Arrival Card",h:"inaportpass.imigrasi.go.id — complete 24–48 hrs before arrival"},
+    {t:"Check passport validity (must be 6+ months from Jun 8)"},
+    {t:"Check UAE re-entry requirements (residency visa validity)"}
+  ],
+  "💰 Money & banking":[
+    {t:"Notify UAE bank about Indonesia travel"},
+    {t:"Withdraw AED cash (AED 600–900 recommended)"},
+    {t:"Download Wise or Revolut for backup card",h:"Much better rates than banks for ATM withdrawals"},
+    {t:"Save offline: 1 AED ≈ 4,800 IDR"}
+  ],
+  "📱 Phone & tech":[
+    {t:"Download offline Google Maps — Bali region"},
+    {t:"Download Muslim Pro (prayer times + qibla)"},
+    {t:"Download Gojek app (rideshare for within cities)"},
+    {t:"Download Grab app (backup rideshare)"},
+    {t:"Check phone plan / buy international roaming",h:"Or plan to get Telkomsel SIM at Bali airport"}
+  ],
+  "✈️ Flights & logistics":[
+    {t:"Online check-in for outbound flight (24–48 hrs before)"},
+    {t:"Online check-in for return flight (24–48 hrs before Jun 15)"},
+    {t:"Confirm all tours with operator 48 hrs before Jun 8"},
+    {t:"Confirm hotel reservations for all 3 hotels"},
+    {t:"Save tour operator number + all hotel numbers offline"},
+    {t:"Pack plug adapter (Type C/F) — UAE Type G won't fit Bali"}
+  ],
+  "🧴 Health & safety":[
+    {t:"Check if any vaccines recommended for Indonesia",h:"Hep A, Typhoid — consult your doctor"},
+    {t:"Get travel insurance that covers water sports + trekking"},
+    {t:"Pack motion sickness pills",h:"Winding mountain roads Ubud→Lovina + Lovina→Sanur"},
+    {t:"Fill prescriptions — bring extra supply"}
+  ]
+};
+
+// ─── BUDGET DATA ──────────────────────────────────────
+const CATS=['Flights','Accommodation','Food','Transport','Activities','Visa/Fees','Shopping','Other'];
+const CAT_E={Flights:'✈',Accommodation:'🏨',Food:'🍜',Transport:'🛵',Activities:'🌊','Visa/Fees':'📋',Shopping:'🛍',Other:'·'};
+const PILL_L={All:'All',Flights:'✈ Flights',Accommodation:'🏨 Stay',Food:'🍜 Food',Transport:'🛵 Transport',Activities:'🌊 Activities','Visa/Fees':'📋 Fees',Shopping:'🛍 Shopping',Other:'Other'};
+
+// ─── PLANNER STATE ────────────────────────────────────
+let ST={
+  checkState:{},customEvts:{},outfitItems:{},packItems:{},
+  halalCustom:{},halalWished:{},placesData:JSON.parse(JSON.stringify(PLACES_INIT)),
+  placesWished:{},ptState:{},ptCustom:{},
+  evtEdits:{},evtDeleted:{},
+  clDeleted:{},ptDeleted:{},oiDeleted:{},
+  halalDeleted:{},halalEdits:{}
+};
+
+function load(){
+  try{const s=localStorage.getItem('bali_v4');if(s)ST=Object.assign(ST,JSON.parse(s));}catch(e){}
+  if(!ST.placesData)ST.placesData=JSON.parse(JSON.stringify(PLACES_INIT));
+  if(!ST.evtEdits)ST.evtEdits={};
+  if(!ST.evtDeleted)ST.evtDeleted={};
+  if(!ST.clDeleted)ST.clDeleted={};
+  if(!ST.ptDeleted)ST.ptDeleted={};
+  if(!ST.oiDeleted)ST.oiDeleted={};
+  if(!ST.halalDeleted)ST.halalDeleted={};
+  if(!ST.halalEdits)ST.halalEdits={};
+}
+function save(){
+  try{localStorage.setItem('bali_v4',JSON.stringify(ST));}catch(e){}
+  const n=document.getElementById('save-notice');
+  n.classList.add('show');
+  setTimeout(()=>n.classList.remove('show'),1500);
+}
+
+// ─── BUDGET STATE ─────────────────────────────────────
+let bRows=[], bNextId=0, activeFilter='All', bSaveTimer=null;
+const BKEY='bali_budget_v1';
+
+function budgetSave(){
+  localStorage.setItem(BKEY,JSON.stringify({rows:bRows,nextId:bNextId,rate:document.getElementById('rate').value}));
+  const n=document.getElementById('save-notice');
+  n.classList.add('show');setTimeout(()=>n.classList.remove('show'),1500);
+}
+function budgetDirty(){
+  clearTimeout(bSaveTimer);bSaveTimer=setTimeout(budgetSave,900);
+}
+function budgetLoad(){
+  try{
+    const d=JSON.parse(localStorage.getItem(BKEY));
+    if(!d)return false;
+    bRows=d.rows||[];bNextId=d.nextId||bRows.length;
+    if(d.rate)document.getElementById('rate').value=d.rate;
+    return true;
+  }catch(e){return false;}
+}
+
+// ─── COUNTDOWN ────────────────────────────────────────
+function updateCountdown(){
+  const dep=new Date('2026-06-08T07:00:00+04:00');
+  const now=new Date();const diff=dep-now;
+  if(diff<=0){document.getElementById('countdown').innerHTML='<div class="cd-box"><span class="cd-num" style="font-size:1.2rem;color:#F0844A">Bon Voyage! ✈</span></div>';return;}
+  const d=Math.floor(diff/86400000);
+  const h=Math.floor((diff%86400000)/3600000);
+  const m=Math.floor((diff%3600000)/60000);
+  document.getElementById('cd-d').textContent=d;
+  document.getElementById('cd-h').textContent=h;
+  document.getElementById('cd-m').textContent=m;
+}
+setInterval(updateCountdown,30000);updateCountdown();
+
+// ─── TAB ──────────────────────────────────────────────
+function tab(id,btn){
+  document.querySelectorAll('.pane').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.nb').forEach(b=>b.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  btn.classList.add('on');
+  window.scrollTo(0,0);
+}
+
+// ─── COLLAPSIBLE ──────────────────────────────────────
+function mkColl(hdrHTML,bodyHTML,startOpen){
+  const d=document.createElement('div');d.className='coll';
+  d.innerHTML=`<div class="coll-hdr" onclick="toggleColl(this)">${hdrHTML}<span class="coll-chev${startOpen?' open':''}">▾</span></div><div class="coll-body${startOpen?' open':''}">${bodyHTML}</div>`;
+  return d;
+}
+function toggleColl(hdr){
+  const body=hdr.nextElementSibling;const chev=hdr.querySelector('.coll-chev');
+  const open=body.classList.contains('open');
+  body.classList.toggle('open',!open);chev.classList.toggle('open',!open);
+}
+
+// ─── ITINERARY ────────────────────────────────────────
+function buildItinerary(){
+  const wrap=document.getElementById('days-wrap');wrap.innerHTML='';
+  DAYS.forEach((d,di)=>{
+    const hdr=`<div class="day-num" style="background:${d.bg};color:${d.tc}">${d.n}</div><div class="day-meta"><div class="day-title">${d.title}</div><div class="day-sub">${d.date} · ${d.city}</div></div><div class="day-wx">${d.wx}</div>`;
+    const coll=mkColl(hdr,'',false);
+    const body=coll.querySelector('.coll-body');body.id='evts-'+di;
+    const addRow=document.createElement('div');addRow.className='day-add';
+    addRow.innerHTML=`<input type="text" placeholder="Add event..." id="ei-${di}" onkeydown="if(event.key==='Enter')addEvt(${di})"><input type="text" placeholder="Time" id="et-${di}" style="max-width:72px;flex:0 0 auto" onkeydown="if(event.key==='Enter')addEvt(${di})"><select id="etype-${di}" style="flex:0 0 auto"><option value="flex">flexible</option><option value="fixed">fixed</option></select><button class="btn btn-sm" onclick="addEvt(${di})">+</button>`;
+    body.appendChild(addRow);wrap.appendChild(coll);renderEvts(di);
+  });
+}
+
+function renderEvts(di){
+  const body=document.getElementById('evts-'+di);if(!body)return;
+  const addRow=body.querySelector('.day-add');
+  body.querySelectorAll('.evt,.evt-edit-row').forEach(e=>e.remove());
+  const deleted=ST.evtDeleted[di]||[];const edits=ST.evtEdits[di]||{};
+  const frag=document.createDocumentFragment();
+  DAYS[di].evts.forEach((e,ei)=>{
+    if(deleted.includes(ei))return;
+    const txt=edits[ei]?edits[ei].x:e.x;const time=edits[ei]?edits[ei].t:e.t;
+    const row=document.createElement('div');row.className='evt';row.dataset.di=di;row.dataset.ei=ei;row.dataset.base='1';
+    row.innerHTML=`<span class="evt-time">${time}</span><div class="evt-dot ${e.tp}"></div><span class="evt-text">${txt}</span><div class="evt-actions"><button class="evt-btn edit-btn" onclick="startEditEvt(${di},${ei},false)" title="Edit">✎</button><button class="evt-btn" onclick="delBaseEvt(${di},${ei})" title="Remove">×</button></div>`;
+    frag.appendChild(row);
+  });
+  (ST.customEvts[di]||[]).forEach((e,ci)=>{
+    const row=document.createElement('div');row.className='evt';
+    row.innerHTML=`<span class="evt-time">${e.t}</span><div class="evt-dot ${e.tp}"></div><span class="evt-text">${e.x}</span><div class="evt-actions"><button class="evt-btn edit-btn" onclick="startEditEvt(${di},${ci},true)" title="Edit">✎</button><button class="evt-btn" onclick="delEvt(${di},${ci})" title="Remove">×</button></div>`;
+    frag.appendChild(row);
+  });
+  body.insertBefore(frag,addRow);
+}
+
+function startEditEvt(di,ei,isCustom){
+  const body=document.getElementById('evts-'+di);if(!body)return;
+  const edits=ST.evtEdits[di]||{};const customEvts=ST.customEvts[di]||[];
+  let curTxt,curTime,targetRow;
+  if(!isCustom){
+    curTxt=edits[ei]?edits[ei].x:DAYS[di].evts[ei].x;
+    curTime=edits[ei]?edits[ei].t:DAYS[di].evts[ei].t;
+    let bi=0;for(let r of body.querySelectorAll('.evt')){if(r.dataset.base==='1'){if(bi===ei){targetRow=r;break;}bi++;}}
+  } else {
+    curTxt=customEvts[ei].x;curTime=customEvts[ei].t;
+    let ci=0;for(let r of body.querySelectorAll('.evt')){if(!r.dataset.base){if(ci===ei){targetRow=r;break;}ci++;}}
+  }
+  if(!targetRow)return;
+  const uid=`${di}-${ei}-${isCustom?'c':'b'}`;
+  const editRow=document.createElement('div');editRow.className='evt-edit-row';
+  editRow.innerHTML=`<input type="text" value="${curTxt.replace(/"/g,'&quot;')}" id="etxt-${uid}" style="flex:2"><input type="text" value="${curTime.replace(/"/g,'&quot;')}" id="etime-${uid}" style="max-width:80px;flex:0 0 auto"><button class="btn btn-sm" onclick="saveEditEvt(${di},${ei},${isCustom})">Save</button><button class="btn btn-sm btn-cancel" onclick="renderEvts(${di})">Cancel</button>`;
+  targetRow.after(editRow);targetRow.style.display='none';
+  document.getElementById('etxt-'+uid).focus();
+}
+function saveEditEvt(di,ei,isCustom){
+  const uid=`${di}-${ei}-${isCustom?'c':'b'}`;
+  const newTxt=document.getElementById('etxt-'+uid).value.trim();if(!newTxt)return;
+  const newTime=document.getElementById('etime-'+uid).value.trim();
+  if(!isCustom){if(!ST.evtEdits[di])ST.evtEdits[di]={};ST.evtEdits[di][ei]={x:newTxt,t:newTime||DAYS[di].evts[ei].t};}
+  else{if(!ST.customEvts[di])ST.customEvts[di]=[];ST.customEvts[di][ei].x=newTxt;ST.customEvts[di][ei].t=newTime||ST.customEvts[di][ei].t;}
+  renderEvts(di);save();
+}
+function delBaseEvt(di,ei){if(!ST.evtDeleted[di])ST.evtDeleted[di]=[];if(!ST.evtDeleted[di].includes(ei))ST.evtDeleted[di].push(ei);renderEvts(di);save();}
+function addEvt(di){
+  const v=document.getElementById('ei-'+di).value.trim();if(!v)return;
+  const t=document.getElementById('et-'+di).value.trim()||'—';
+  const tp=document.getElementById('etype-'+di).value;
+  if(!ST.customEvts[di])ST.customEvts[di]=[];
+  ST.customEvts[di].push({t,x:v,tp});
+  document.getElementById('ei-'+di).value='';document.getElementById('et-'+di).value='';
+  renderEvts(di);save();
+}
+function delEvt(di,ci){ST.customEvts[di].splice(ci,1);renderEvts(di);save();}
+
+// ─── PACKING ─────────────────────────────────────────
+function buildPacking(){
+  const wrap=document.getElementById('cl-wrap');wrap.innerHTML='';
+  Object.keys(CL).forEach(sec=>{
+    const sid='cl_'+sec.replace(/\W+/g,'_');
+    const coll=mkColl(`<span style="font-size:15px;font-weight:500;flex:1">${sec}</span>`,'',false);
+    const body=coll.querySelector('.coll-body');
+    const itemWrap=document.createElement('div');itemWrap.id='ci-'+sid;
+    const addBar=document.createElement('div');addBar.className='add-bar';
+    addBar.innerHTML=`<input type="text" placeholder="Add item..." id="inp-${sid}" onkeydown="if(event.key==='Enter')addCL('${sec}','${sid}')"><button class="btn btn-sm" onclick="addCL('${sec}','${sid}')">+</button>`;
+    body.appendChild(itemWrap);body.appendChild(addBar);wrap.appendChild(coll);renderCL(sec,sid);
+  });
+  updateProg();
+}
+function renderCL(sec,sid){
+  const wrap=document.getElementById('ci-'+sid);if(!wrap)return;wrap.innerHTML='';
+  const deleted=ST.clDeleted[sec]||[];
+  CL[sec].forEach((item,idx)=>{
+    if(deleted.includes(idx))return;
+    const key=sec+'::'+item.t;const done=!!ST.checkState[key];
+    const div=document.createElement('div');div.className='cl-item'+(done?' done':'');
+    div.innerHTML=`<div class="cbox"><span class="ck">✓</span></div><div class="cl-label">${item.t}${item.h?`<span class="cl-hint">${item.h}</span>`:''}</div><button class="cl-del" onclick="event.stopPropagation();delBaseCL('${sec}','${sid}',${idx})">×</button>`;
+    div.onclick=function(e){if(e.target.classList.contains('cl-del'))return;ST.checkState[key]=!ST.checkState[key];div.classList.toggle('done');div.querySelector('.ck').style.display=ST.checkState[key]?'block':'none';updateProg();save();};
+    wrap.appendChild(div);
+  });
+  (ST.packItems[sec]||[]).forEach((item,ci)=>{
+    const key=sec+'::'+item.t;const done=!!ST.checkState[key];
+    const div=document.createElement('div');div.className='cl-item'+(done?' done':'');
+    div.innerHTML=`<div class="cbox"><span class="ck">✓</span></div><div class="cl-label">${item.t}</div><button class="cl-del" onclick="event.stopPropagation();delCL('${sec}','${sid}',${ci})">×</button>`;
+    div.onclick=function(e){if(e.target.classList.contains('cl-del'))return;ST.checkState[key]=!ST.checkState[key];div.classList.toggle('done');div.querySelector('.ck').style.display=ST.checkState[key]?'block':'none';updateProg();save();};
+    wrap.appendChild(div);
+  });
+}
+function delBaseCL(sec,sid,idx){if(!ST.clDeleted[sec])ST.clDeleted[sec]=[];if(!ST.clDeleted[sec].includes(idx))ST.clDeleted[sec].push(idx);renderCL(sec,sid);updateProg();save();}
+function addCL(sec,sid){
+  const inp=document.getElementById('inp-'+sid);const v=inp.value.trim();if(!v)return;
+  if(!ST.packItems[sec])ST.packItems[sec]=[];ST.packItems[sec].push({t:v});inp.value='';
+  renderCL(sec,sid);updateProg();save();
+}
+function delCL(sec,sid,ci){delete ST.checkState[sec+'::'+ST.packItems[sec][ci].t];ST.packItems[sec].splice(ci,1);renderCL(sec,sid);updateProg();save();}
+function updateProg(){
+  let total=0,done=0;
+  Object.keys(CL).forEach(s=>{
+    const deleted=ST.clDeleted[s]||[];
+    CL[s].forEach((i,idx)=>{if(!deleted.includes(idx)){total++;if(ST.checkState[s+'::'+i.t])done++;}});
+    (ST.packItems[s]||[]).forEach(i=>{total++;if(ST.checkState[s+'::'+i.t])done++;});
+  });
+  const pct=total?Math.round(done/total*100):0;
+  ['prog-fill','hdr-fill'].forEach(id=>{const el=document.getElementById(id);if(el)el.style.width=pct+'%';});
+  const pl=document.getElementById('prog-lbl');if(pl)pl.textContent=`${done} of ${total} packed`;
+  const pp=document.getElementById('prog-pct');if(pp)pp.textContent=pct+'%';
+  const ht=document.getElementById('hdr-txt');
+  if(ht)ht.textContent=pct===0?'Tap Packing to start your checklist':pct===100?'✓ All packed — have an amazing trip!':pct+'% packed · '+(total-done)+' items left';
+}
+
+// ─── WARDROBE ────────────────────────────────────────
+function buildWardrobe(){
+  const wrap=document.getElementById('wrd-days');wrap.innerHTML='';
+  const dayBg=['#286860','#E05E20','#2A1F3A','#1B5EB8','#1B5EB8','#2A1F3A','#286860','#C97C0A'];
+  WRD.forEach((d,di)=>{
+    const hdr=`<div class="day-num" style="background:${dayBg[di]||'#286860'};color:#fff">${di+1}</div><div class="day-meta"><div class="day-title">${d.label}</div><div class="day-sub">${d.date}</div></div>`;
+    const coll=mkColl(hdr,'',false);const body=coll.querySelector('.coll-body');body.id='wd-'+di;
+    wrap.appendChild(coll);renderWrdDay(di);
+  });
+}
+function renderWrdDay(di){
+  const body=document.getElementById('wd-'+di);if(!body)return;body.innerHTML='';
+  const d=WRD[di];
+  const typCls={activity:'ot-activity',swim:'ot-swim',casual:'ot-casual',sleep:'ot-sleep'};
+  const typLbl={activity:'Activity',swim:'Swimwear',casual:'Casual',sleep:'Pyjamas 🌙'};
+  d.outfits.forEach((outfit,oi)=>{
+    const okey=`${di}-${oi}`;
+    const oDiv=document.createElement('div');oDiv.style.borderTop=oi>0?'1px solid var(--border)':'';
+    oDiv.innerHTML=`<div class="outfit-hdr"><span class="outfit-num">Outfit ${oi+1}</span><span class="outfit-name">${outfit.name}</span><span class="outfit-type ${typCls[outfit.type]||'ot-casual'}">${typLbl[outfit.type]||outfit.type}</span></div>`;
+    const itemsDiv=document.createElement('div');itemsDiv.className='outfit-body';itemsDiv.id='oi-'+okey;
+    const addRow=document.createElement('div');addRow.className='outfit-add';
+    addRow.innerHTML=`<input type="text" placeholder="Add item..." id="oii-${okey}" onkeydown="if(event.key==='Enter')addOI('${okey}',${di})"><button class="btn btn-sm" onclick="addOI('${okey}',${di})">+</button>`;
+    oDiv.appendChild(itemsDiv);oDiv.appendChild(addRow);body.appendChild(oDiv);
+    const deleted=ST.oiDeleted[okey]||[];
+    const allItems=[
+      ...outfit.items.map((it,idx)=>({...it,_base:true,_baseIdx:idx})).filter(it=>!deleted.includes(it._baseIdx)),
+      ...(ST.outfitItems[okey]||[]).map((it,ci)=>({...it,_base:false,_ci:ci}))
+    ];
+    renderOI(okey,allItems,di,oi,outfit.items.length);
+  });
+}
+function renderOI(okey,allItems,di,oi,baseLen){
+  const wrap=document.getElementById('oi-'+okey);if(!wrap)return;wrap.innerHTML='';
+  allItems.forEach(item=>{
+    const key=`o-${okey}-${item.t}`;const done=!!ST.checkState[key];
+    const el=document.createElement('div');el.className='oi'+(done?' done':'');
+    const delBtn=!item._base
+      ?`<button class="oi-del" onclick="event.stopPropagation();delOI('${okey}',${di},${item._ci})">×</button>`
+      :`<button class="oi-del" onclick="event.stopPropagation();delBaseOI('${okey}',${item._baseIdx})">×</button>`;
+    el.innerHTML=`<div class="obox"><span class="ock">✓</span></div><span class="oi-text">${item.t}${item.h?`<span class="oi-hint">${item.h}</span>`:''}</span>${delBtn}`;
+    el.onclick=function(e){if(e.target.classList.contains('oi-del'))return;ST.checkState[key]=!ST.checkState[key];el.classList.toggle('done');el.querySelector('.ock').style.display=ST.checkState[key]?'block':'none';save();};
+    wrap.appendChild(el);
+  });
+}
+function addOI(okey,di){
+  const inp=document.getElementById('oii-'+okey);const v=inp.value.trim();if(!v)return;
+  if(!ST.outfitItems[okey])ST.outfitItems[okey]=[];ST.outfitItems[okey].push({t:v});inp.value='';
+  renderWrdDay(di);save();
+}
+function delOI(okey,di,ci){ST.outfitItems[okey].splice(ci,1);renderWrdDay(di);save();}
+function delBaseOI(okey,baseIdx){
+  if(!ST.oiDeleted[okey])ST.oiDeleted[okey]=[];
+  if(!ST.oiDeleted[okey].includes(baseIdx))ST.oiDeleted[okey].push(baseIdx);
+  const parts=okey.split('-');renderWrdDay(parseInt(parts[0]));save();
+}
+
+// ─── HALAL ────────────────────────────────────────────
+function buildHalal(){
+  const wrap=document.getElementById('halal-wrap');wrap.innerHTML='';
+  Object.keys(HALAL_DATA).forEach(city=>{
+    const cd=HALAL_DATA[city];
+    const coll=mkColl(`<span style="font-size:15px;font-weight:500;flex:1">${city}</span><span style="font-size:12px;color:var(--ink3)">${cd.note}</span>`,'',false);
+    const body=coll.querySelector('.coll-body');body.id='hl-'+city;
+    const addForm=document.createElement('div');addForm.className='sub-add';
+    addForm.innerHTML=`<div class="sub-add-title">+ Add a place in ${city}</div>
+      <div class="form-row"><input type="text" placeholder="Name..." id="hname-${city}"><input type="text" placeholder="Cert note..." id="hcert-${city}"></div>
+      <div class="form-row"><input type="text" placeholder="Description..." id="hdesc-${city}" style="flex:2"><input type="text" placeholder="Maps URL (optional)" id="hmaps-${city}" style="flex:2"><button class="btn btn-sm" onclick="addHalal('${city}')">+ Add</button></div>`;
+    body.appendChild(addForm);wrap.appendChild(coll);renderHalal(city);
+  });
+}
+function renderHalal(city){
+  const body=document.getElementById('hl-'+city);if(!body)return;
+  body.querySelectorAll('.hl-card-inner,.hl-edit-row').forEach(e=>e.remove());
+  const addForm=body.querySelector('.sub-add');
+  const deleted=ST.halalDeleted[city]||[];const edits=ST.halalEdits[city]||{};
+  HALAL_DATA[city].places.forEach((p,bi)=>{
+    if(deleted.includes(bi))return;
+    const ep=edits[bi]||{};
+    const name=ep.name||p.name,cert=ep.cert||p.cert,desc=ep.desc!==undefined?ep.desc:p.desc;
+    const maps=ep.maps||p.maps,walk=ep.walk!==undefined?ep.walk:p.walk,car=ep.car!==undefined?ep.car:p.car;
+    const certCls=ep.certCls||p.certCls||'tgold';
+    const div=document.createElement('div');div.className='hl-card-inner';div.dataset.bi=bi;
+    div.style.borderBottom='1px solid var(--border)';
+    div.innerHTML=`<div class="hl-btns"><button class="hl-action-btn edit" onclick="startEditHalal('${city}',${bi},false)" title="Edit">✎</button><button class="hl-action-btn del" onclick="delBaseHalal('${city}',${bi})" title="Remove">×</button></div>
+      <div class="hl-name">${name}</div><span class="tag ${certCls} hl-cert">${cert}</span>
+      <div class="hl-desc">${desc||''}</div>
+      <div class="hl-footer"><a class="hl-maps" href="${maps}" target="_blank" rel="noopener">📍 Maps</a>${walk&&walk!=='—'?`<span class="hl-dist">🚶 ${walk}</span>`:''}${car&&car!=='—'?`<span class="hl-dist">🚗 ${car}</span>`:''}</div>`;
+    body.insertBefore(div,addForm);
+  });
+  (ST.halalCustom[city]||[]).forEach((p,ci)=>{
+    const div=document.createElement('div');div.className='hl-card-inner';div.style.borderBottom='1px solid var(--border)';
+    div.innerHTML=`<div class="hl-btns"><button class="hl-action-btn edit" onclick="startEditHalal('${city}',${ci},true)" title="Edit">✎</button><button class="hl-action-btn del" onclick="delHalal('${city}',${ci})" title="Remove">×</button></div>
+      <div class="hl-name">${p.name}</div><span class="tag ${p.certCls||'tblue'} hl-cert">${p.cert}</span>
+      <div class="hl-desc">${p.desc||''}</div>
+      <div class="hl-footer"><a class="hl-maps" href="${p.maps}" target="_blank" rel="noopener">📍 Maps</a>${p.walk&&p.walk!=='—'?`<span class="hl-dist">🚶 ${p.walk}</span>`:''}${p.car&&p.car!=='—'?`<span class="hl-dist">🚗 ${p.car}</span>`:''}</div>`;
+    body.insertBefore(div,addForm);
+  });
+}
+function delBaseHalal(city,bi){if(!ST.halalDeleted[city])ST.halalDeleted[city]=[];if(!ST.halalDeleted[city].includes(bi))ST.halalDeleted[city].push(bi);renderHalal(city);save();}
+function startEditHalal(city,idx,isCustom){
+  const body=document.getElementById('hl-'+city);if(!body)return;
+  const edits=ST.halalEdits[city]||{};
+  const basePlaces=HALAL_DATA[city].places;const customPlaces=ST.halalCustom[city]||[];
+  let p,targetCard;
+  if(!isCustom){
+    p={...basePlaces[idx],...(edits[idx]||{})};
+    for(let c of body.querySelectorAll('.hl-card-inner')){if(c.dataset.bi&&parseInt(c.dataset.bi)===idx){targetCard=c;break;}}
+  } else {
+    p=customPlaces[idx];
+    let ci2=0;for(let c of body.querySelectorAll('.hl-card-inner')){if(!c.dataset.bi){if(ci2===idx){targetCard=c;break;}ci2++;}}
+  }
+  if(!targetCard||!p)return;
+  const uid=`${city}-${idx}-${isCustom?'c':'b'}`;
+  const editRow=document.createElement('div');editRow.className='hl-edit-row';
+  editRow.innerHTML=`<div class="form-row"><input type="text" id="he-name-${uid}" value="${(p.name||'').replace(/"/g,'&quot;')}" placeholder="Name"><input type="text" id="he-cert-${uid}" value="${(p.cert||'').replace(/"/g,'&quot;')}" placeholder="Cert note"></div>
+    <div class="form-row"><input type="text" id="he-desc-${uid}" value="${(p.desc||'').replace(/"/g,'&quot;')}" placeholder="Description" style="flex:2"></div>
+    <div class="form-row"><input type="text" id="he-maps-${uid}" value="${(p.maps||'').replace(/"/g,'&quot;')}" placeholder="Maps URL" style="flex:2"><input type="text" id="he-walk-${uid}" value="${(p.walk&&p.walk!=='—'?p.walk:'')}" placeholder="Walk time" style="max-width:90px"><input type="text" id="he-car-${uid}" value="${(p.car&&p.car!=='—'?p.car:'')}" placeholder="Drive time" style="max-width:90px"></div>
+    <div class="form-row"><button class="btn btn-sm" onclick="saveEditHalal('${city}',${idx},${isCustom})">Save</button><button class="btn btn-sm btn-cancel" onclick="renderHalal('${city}')">Cancel</button></div>`;
+  targetCard.after(editRow);targetCard.style.display='none';
+  document.getElementById('he-name-'+uid).focus();
+}
+function saveEditHalal(city,idx,isCustom){
+  const uid=`${city}-${idx}-${isCustom?'c':'b'}`;
+  const name=document.getElementById('he-name-'+uid).value.trim();if(!name)return;
+  const cert=document.getElementById('he-cert-'+uid).value.trim();
+  const desc=document.getElementById('he-desc-'+uid).value.trim();
+  const maps=document.getElementById('he-maps-'+uid).value.trim();
+  const walk=document.getElementById('he-walk-'+uid).value.trim()||'—';
+  const car=document.getElementById('he-car-'+uid).value.trim()||'—';
+  if(!isCustom){if(!ST.halalEdits[city])ST.halalEdits[city]={};ST.halalEdits[city][idx]={name,cert,desc,maps,walk,car};}
+  else{if(!ST.halalCustom[city])ST.halalCustom[city]=[];ST.halalCustom[city][idx]={...ST.halalCustom[city][idx],name,cert,desc,maps,walk,car};}
+  renderHalal(city);save();
+}
+function addHalal(city){
+  const name=document.getElementById('hname-'+city).value.trim();if(!name)return;
+  const cert=document.getElementById('hcert-'+city).value.trim()||'Added by you';
+  const desc=document.getElementById('hdesc-'+city).value.trim();
+  const maps=document.getElementById('hmaps-'+city).value.trim()||`https://maps.google.com/?q=${encodeURIComponent(name+' '+city+' Bali')}`;
+  if(!ST.halalCustom[city])ST.halalCustom[city]=[];
+  ST.halalCustom[city].push({name,cert,certCls:'tblue',desc,maps,walk:'—',car:'—'});
+  ['hname','hcert','hdesc','hmaps'].forEach(f=>{const el=document.getElementById(f+'-'+city);if(el)el.value='';});
+  renderHalal(city);save();
+}
+function delHalal(city,ci){ST.halalCustom[city].splice(ci,1);renderHalal(city);save();}
+
+// ─── PLACES ──────────────────────────────────────────
+function buildPlaces(){
+  const wrap=document.getElementById('places-wrap');wrap.innerHTML='';
+  Object.keys(ST.placesData).forEach(city=>{
+    const coll=mkColl(`<span style="font-size:15px;font-weight:500;flex:1">${city}</span>`,'',false);
+    const body=coll.querySelector('.coll-body');body.id='pl-'+city;
+    const addForm=document.createElement('div');addForm.className='sub-add';
+    addForm.innerHTML=`<div class="sub-add-title">+ Add a place in ${city}</div>
+      <div class="form-row"><input type="text" placeholder="Place name..." id="pname-${city}"><select id="ptype-${city}"><option value="cafe">☕ cafe</option><option value="nature">🌿 nature</option><option value="food">🍜 food</option><option value="shopping">🛍 shopping</option><option value="landmark">🏛 landmark</option><option value="beach">🏖 beach</option><option value="other">📌 other</option></select></div>
+      <div class="form-row"><input type="text" placeholder="Note or tip..." id="pnote-${city}"><input type="text" placeholder="Maps URL (opt)" id="pmaps-${city}"><button class="btn btn-sm" onclick="addPlace('${city}')">+ Add</button></div>`;
+    body.appendChild(addForm);wrap.appendChild(coll);renderPlaces(city);
+  });
+}
+const ptC={cafe:'tt',nature:'tg',food:'tgreen',shopping:'tgold',landmark:'tblue',beach:'tblue',other:''};
+const ptE={cafe:'☕',nature:'🌿',food:'🍜',shopping:'🛍',landmark:'🏛',beach:'🏖',other:'📌'};
+function renderPlaces(city){
+  const body=document.getElementById('pl-'+city);if(!body)return;
+  body.querySelectorAll('.pl-card-inner').forEach(e=>e.remove());
+  const addForm=body.querySelector('.sub-add');
+  ST.placesData[city].forEach((p,pi)=>{
+    const wk=city+pi;const saved=!!ST.placesWished[wk];
+    const div=document.createElement('div');div.className='pl-card-inner';
+    if(pi<ST.placesData[city].length-1)div.style.borderBottom='1px solid var(--border)';
+    div.innerHTML=`<div class="pl-left"><div class="pl-name">${p.name}</div><span class="tag ${ptC[p.type]||''} pl-type">${ptE[p.type]||'📌'} ${p.type}</span>${p.note?`<div class="pl-note">${p.note}</div>`:''}<div class="pl-footer">${p.maps?`<a class="pl-maps" href="${p.maps}" target="_blank" rel="noopener">📍 Maps</a>`:''}</div></div><div class="pl-right"><div class="pl-heart ${saved?'on':''}" onclick="toggleWish('${city}',${pi},this)">${saved?'❤️':'🤍'}</div><button class="pl-del" onclick="delPlace('${city}',${pi})">×</button></div>`;
+    body.insertBefore(div,addForm);
+  });
+}
+function addPlace(city){
+  const name=document.getElementById('pname-'+city).value.trim();if(!name)return;
+  const type=document.getElementById('ptype-'+city).value;
+  const note=document.getElementById('pnote-'+city).value.trim();
+  const maps=document.getElementById('pmaps-'+city).value.trim()||`https://maps.google.com/?q=${encodeURIComponent(name+' '+city+' Bali')}`;
+  ST.placesData[city].push({name,type,note,maps});
+  ['pname','pnote','pmaps'].forEach(f=>{const el=document.getElementById(f+'-'+city);if(el)el.value='';});
+  renderPlaces(city);save();
+}
+function delPlace(city,pi){ST.placesData[city].splice(pi,1);renderPlaces(city);save();}
+function toggleWish(city,pi,btn){const k=city+pi;ST.placesWished[k]=!ST.placesWished[k];btn.classList.toggle('on');btn.textContent=ST.placesWished[k]?'❤️':'🤍';save();}
+
+// ─── PRE-TRIP ─────────────────────────────────────────
+function buildPretrip(){
+  const wrap=document.getElementById('pt-wrap');wrap.innerHTML='';
+  Object.keys(PRETRIP).forEach(sec=>{
+    const sid='pt_'+sec.replace(/\W+/g,'_');
+    const coll=mkColl(`<span style="font-size:15px;font-weight:500;flex:1">${sec}</span>`,'',false);
+    const body=coll.querySelector('.coll-body');
+    const itemWrap=document.createElement('div');itemWrap.id='pti-'+sid;
+    const addBar=document.createElement('div');addBar.className='add-bar';
+    addBar.innerHTML=`<input type="text" placeholder="Add task..." id="ptinp-${sid}" onkeydown="if(event.key==='Enter')addPT('${sec}','${sid}')"><button class="btn btn-sm" onclick="addPT('${sec}','${sid}')">+</button>`;
+    body.appendChild(itemWrap);body.appendChild(addBar);wrap.appendChild(coll);renderPT(sec,sid);
+  });
+}
+function renderPT(sec,sid){
+  const wrap=document.getElementById('pti-'+sid);if(!wrap)return;wrap.innerHTML='';
+  const deleted=ST.ptDeleted[sec]||[];
+  PRETRIP[sec].forEach((item,idx)=>{
+    if(deleted.includes(idx))return;
+    const key='pt::'+sec+'::'+item.t;const done=!!ST.ptState[key];
+    const div=document.createElement('div');div.className='cl-item'+(done?' done':'');
+    div.innerHTML=`<div class="cbox"><span class="ck">✓</span></div><div class="cl-label">${item.t}${item.h?`<span class="cl-hint">${item.h}</span>`:''}</div><button class="cl-del" onclick="event.stopPropagation();delBasePT('${sec}','${sid}',${idx})">×</button>`;
+    div.onclick=function(e){if(e.target.classList.contains('cl-del'))return;ST.ptState[key]=!ST.ptState[key];div.classList.toggle('done');div.querySelector('.ck').style.display=ST.ptState[key]?'block':'none';save();};
+    wrap.appendChild(div);
+  });
+  (ST.ptCustom[sec]||[]).forEach((item,ci)=>{
+    const key='pt::'+sec+'::'+item.t;const done=!!ST.ptState[key];
+    const div=document.createElement('div');div.className='cl-item'+(done?' done':'');
+    div.innerHTML=`<div class="cbox"><span class="ck">✓</span></div><div class="cl-label">${item.t}</div><button class="cl-del" onclick="event.stopPropagation();delPT('${sec}','${sid}',${ci})">×</button>`;
+    div.onclick=function(e){if(e.target.classList.contains('cl-del'))return;ST.ptState[key]=!ST.ptState[key];div.classList.toggle('done');div.querySelector('.ck').style.display=ST.ptState[key]?'block':'none';save();};
+    wrap.appendChild(div);
+  });
+}
+function delBasePT(sec,sid,idx){if(!ST.ptDeleted[sec])ST.ptDeleted[sec]=[];if(!ST.ptDeleted[sec].includes(idx))ST.ptDeleted[sec].push(idx);renderPT(sec,sid);save();}
+function addPT(sec,sid){
+  const inp=document.getElementById('ptinp-'+sid);const v=inp.value.trim();if(!v)return;
+  if(!ST.ptCustom[sec])ST.ptCustom[sec]=[];ST.ptCustom[sec].push({t:v});inp.value='';
+  renderPT(sec,sid);save();
+}
+function delPT(sec,sid,ci){ST.ptCustom[sec].splice(ci,1);renderPT(sec,sid);save();}
+
+// ─── BUDGET FUNCTIONS ─────────────────────────────────
+const bRt=()=>parseFloat(document.getElementById('rate').value)||4300;
+const bFN=n=>Number(n).toLocaleString('en-US',{maximumFractionDigits:0});
+const bFI=n=>n>=1e6?(n/1e6).toFixed(1)+'M':n>=1000?Math.round(n/1000)+'K':bFN(n);
+const bFA=n=>n?'AED '+bFN(n):'—';
+const bFAi=n=>n?'IDR '+bFI(Math.round(n)):'';
+
+function statusTag(total,paid){
+  if(!total)return'';
+  if(paid>=total)return'<span class="btag btag-paid">Paid</span>';
+  if(paid>0)return'<span class="btag btag-partial">Partial</span>';
+  return'<span class="btag btag-unpaid">Unpaid</span>';
+}
+
+function calcBalances(){
+  let iOweDad=0,iOweNafeesa=0,nafOwesMe=0;
+  for(const r of bRows){
+    const total=parseFloat(r.aed)||0,paid=parseFloat(r.paid_aed)||0;
+    const remaining=Math.max(0,total-paid);
+    const me=parseFloat(r.me_share)||0,naf=parseFloat(r.naf_share)||0;
+    const hasSplit=me>0||naf>0;
+    if(r.paidBy==='Dad'){iOweDad+=remaining;if(hasSplit&&naf>0)nafOwesMe+=naf;}
+    else if(r.paidBy==='Me'){if(hasSplit&&naf>0)nafOwesMe+=naf;}
+    else if(r.paidBy==='Nafeesa'){if(hasSplit&&me>0)iOweNafeesa+=me;else iOweNafeesa+=remaining;}
+  }
+  return{iOweDad,iOweNafeesa,nafOwesMe,net:nafOwesMe-iOweNafeesa};
+}
+
+function buildPills(){
+  document.getElementById('filter-bar').innerHTML=['All',...CATS].map(c=>
+    `<div class="pill${c===activeFilter?' active':''}" data-filter="${c}">${PILL_L[c]||c}</div>`).join('');
+}
+
+function cardHTML(row){
+  const r=bRt();
+  const total=parseFloat(row.aed)||0,paid=parseFloat(row.paid_aed)||0;
+  const me=parseFloat(row.me_share)||0,naf=parseFloat(row.naf_share)||0;
+  const hasSplit=me>0||naf>0;
+  const pClass=row.paidBy==='Dad'?'p-dad':row.paidBy==='Nafeesa'?'p-naf':'p-me';
+  const splitTotal=me+naf,diff=total>0&&splitTotal>0?total-splitTotal:0;
+  let noteHTML='';
+  if(hasSplit){
+    if(Math.abs(diff)<0.5)noteHTML=`<div class="split-note ok">✓ Split adds up to AED ${bFN(splitTotal)}</div>`;
+    else noteHTML=`<div class="split-note warn">AED ${bFN(Math.abs(diff))} ${diff>0?'unaccounted':'over-allocated'}</div>`;
+  }
+  let hint='';
+  if(row.paidBy==='Nafeesa'&&!hasSplit)hint='Nafeesa paid — add split below, or full amount is counted as yours';
+  else if(row.paidBy==='Me'&&hasSplit&&naf>0)hint=`Nafeesa owes you AED ${bFN(naf)} for this`;
+  else if(row.paidBy==='Nafeesa'&&hasSplit&&me>0)hint=`You owe Nafeesa AED ${bFN(me)} for this`;
+  else if(row.paidBy==='Dad'){hint=`You owe Dad AED ${bFN(Math.max(0,total-paid))} (unpaid balance)`;if(hasSplit&&naf>0)hint+=` · Nafeesa owes you AED ${bFN(naf)}`;}
+  return`
+  <div class="row-top">
+    <div class="row-top-left">
+      <input class="row-desc" type="text" value="${row.desc.replace(/"/g,'&quot;')}" placeholder="What is this for?" data-id="${row.id}" data-field="desc">
+      <div class="row-meta">
+        <select class="small s-cat" data-id="${row.id}" data-field="cat">
+          ${CATS.map(c=>`<option value="${c}"${c===row.cat?' selected':''}>${CAT_E[c]} ${c}</option>`).join('')}
+        </select>
+        <select class="small ${pClass}" data-id="${row.id}" data-field="paidBy">
+          <option value="Me"${row.paidBy==='Me'?' selected':''}>🙋 I paid</option>
+          <option value="Dad"${row.paidBy==='Dad'?' selected':''}>💳 Dad paid</option>
+          <option value="Nafeesa"${row.paidBy==='Nafeesa'?' selected':''}>👩 Nafeesa paid</option>
+        </select>
+        ${statusTag(total,paid)}
+      </div>
+    </div>
+    <button class="del-btn" data-del="${row.id}">×</button>
+  </div>
+  <div class="row-amounts">
+    <div class="amount-cell">
+      <div class="alabel"><span class="cbadge">AED</span> Total</div>
+      <input class="amount" type="number" inputmode="decimal" value="${row.aed||''}" placeholder="0" data-id="${row.id}" data-field="aed">
+      <div class="cval" id="cv-aed-${row.id}">${total?bFAi(total*r):''}</div>
+    </div>
+    <div class="amount-cell">
+      <div class="alabel"><span class="cbadge">AED</span> Paid back</div>
+      <input class="amount" type="number" inputmode="decimal" value="${row.paid_aed||''}" placeholder="0" data-id="${row.id}" data-field="paid_aed">
+      <div class="cval" id="cv-paid-${row.id}">${paid?bFAi(paid*r):''}</div>
+    </div>
+  </div>
+  <div class="split-toggle${hasSplit?' has-data':''}" data-toggle="${row.id}">
+    <span>${hasSplit?`Split: Me AED ${bFN(me)} · Nafeesa AED ${bFN(naf)}`:'Split between me &amp; Nafeesa? (tap to add)'}</span>
+    <span class="arrow">▾</span>
+  </div>
+  <div class="split-body${hasSplit?' open':''}" id="split-${row.id}">
+    <div class="split-grid">
+      <div class="split-block"><div class="split-who me">🙋 My share</div><input class="sinput" type="number" inputmode="decimal" value="${me||''}" placeholder="0" data-id="${row.id}" data-field="me_share"><div class="sconv" id="cv-me-${row.id}">${me?bFAi(me*r):''}</div></div>
+      <div class="split-block"><div class="split-who naf">👩 Nafeesa's share</div><input class="sinput" type="number" inputmode="decimal" value="${naf||''}" placeholder="0" data-id="${row.id}" data-field="naf_share"><div class="sconv" id="cv-naf-${row.id}">${naf?bFAi(naf*r):''}</div></div>
+    </div>
+    ${noteHTML}
+    ${hint?`<div style="font-size:11px;color:var(--ink3);margin-top:6px;padding:4px 2px">${hint}</div>`:''}
+  </div>`;
+}
+
+function fullRender(){
+  buildPills();
+  const c=document.getElementById('rows');
+  if(!bRows.length){c.innerHTML='<div class="empty-state">No items yet — tap "+ Add item" 🌴</div>';}
+  else{c.innerHTML=bRows.map(row=>{
+    const hidden=activeFilter!=='All'&&row.cat!==activeFilter?' hidden':'';
+    return`<div class="row-card${hidden}" data-card="${row.id}">${cardHTML(row)}</div>`;
+  }).join('');}
+  updateTotals();
+}
+
+function patchCard(id){
+  const card=document.querySelector(`[data-card="${id}"]`);
+  const row=bRows.find(r=>r.id===id);if(!card||!row)return;
+  const r=bRt();
+  const total=parseFloat(row.aed)||0,paid=parseFloat(row.paid_aed)||0;
+  const me=parseFloat(row.me_share)||0,naf=parseFloat(row.naf_share)||0;
+  const hasSplit=me>0||naf>0;
+  const g=id=>document.getElementById(id);
+  if(g(`cv-aed-${id}`))g(`cv-aed-${id}`).textContent=total?bFAi(total*r):'';
+  if(g(`cv-paid-${id}`))g(`cv-paid-${id}`).textContent=paid?bFAi(paid*r):'';
+  if(g(`cv-me-${id}`))g(`cv-me-${id}`).textContent=me?bFAi(me*r):'';
+  if(g(`cv-naf-${id}`))g(`cv-naf-${id}`).textContent=naf?bFAi(naf*r):'';
+  const meta=card.querySelector('.row-meta');
+  if(meta){const t=meta.querySelector('.btag');if(t)t.remove();const th=statusTag(total,paid);if(th)meta.insertAdjacentHTML('beforeend',th);}
+  const pSel=card.querySelector('[data-field="paidBy"]');
+  if(pSel)pSel.className='small '+(row.paidBy==='Dad'?'p-dad':row.paidBy==='Nafeesa'?'p-naf':'p-me');
+  const tog=card.querySelector('.split-toggle');
+  if(tog){
+    tog.classList.toggle('has-data',hasSplit);
+    const sp=tog.querySelector('span:first-child');
+    if(sp)sp.innerHTML=hasSplit?`Split: Me AED ${bFN(me)} · Nafeesa AED ${bFN(naf)}`:'Split between me &amp; Nafeesa? (tap to add)';
+  }
+  const sbody=document.getElementById(`split-${id}`);
+  if(sbody){
+    let ex=sbody.querySelector('.split-note');if(ex)ex.remove();
+    let hintEl=sbody.querySelector('[data-hint]');if(hintEl)hintEl.remove();
+    if(hasSplit){
+      const splitTotal=me+naf,diff=total>0&&splitTotal>0?total-splitTotal:0;
+      const note=document.createElement('div');
+      if(Math.abs(diff)<0.5){note.className='split-note ok';note.textContent=`✓ Split adds up to AED ${bFN(splitTotal)}`;}
+      else{note.className='split-note warn';note.textContent=`AED ${bFN(Math.abs(diff))} ${diff>0?'unaccounted':'over-allocated'}`;}
+      sbody.appendChild(note);
+    }
+    let hint='';
+    if(row.paidBy==='Nafeesa'&&!hasSplit)hint='Nafeesa paid — add split below, or full unpaid amount is counted as yours';
+    else if(row.paidBy==='Me'&&hasSplit&&naf>0)hint=`Nafeesa owes you AED ${bFN(naf)} for this`;
+    else if(row.paidBy==='Nafeesa'&&hasSplit&&me>0)hint=`You owe Nafeesa AED ${bFN(me)} for this`;
+    else if(row.paidBy==='Dad'){hint=`You owe Dad AED ${bFN(Math.max(0,total-paid))} (unpaid balance)`;if(hasSplit&&naf>0)hint+=` · Nafeesa owes you AED ${bFN(naf)}`;}
+    if(hint){const h=document.createElement('div');h.dataset.hint='1';h.style.cssText='font-size:11px;color:var(--ink3);margin-top:6px;padding:4px 2px';h.textContent=hint;sbody.appendChild(h);}
+  }
+  if(activeFilter!=='All')card.classList.toggle('hidden',row.cat!==activeFilter);
+  updateTotals();
+}
+
+function updateTotals(){
+  const r=bRt();
+  const total=bRows.reduce((s,x)=>s+(parseFloat(x.aed)||0),0);
+  const paid=bRows.reduce((s,x)=>s+(parseFloat(x.paid_aed)||0),0);
+  const owed=total-paid;
+  const doneC=bRows.filter(x=>(parseFloat(x.paid_aed)||0)>=(parseFloat(x.aed)||1)&&(parseFloat(x.aed)||0)>0).length;
+  const{iOweDad,iOweNafeesa,nafOwesMe,net}=calcBalances();
+  const s=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v;};
+  s('m-total','AED '+bFN(total));s('m-total-i',bFAi(total*r));
+  s('m-paid','AED '+bFN(paid));s('m-paid-i',bFAi(paid*r));
+  s('m-owed','AED '+bFN(owed));s('m-owed-i',bFAi(owed*r));
+  s('m-count',bRows.length);s('m-pcount',doneC+' paid');
+  s('ft-total',bFA(total));s('ft-total-i',bFAi(total*r));
+  s('ft-paid',bFA(paid));s('ft-paid-i',bFAi(paid*r));
+  s('ft-dad',iOweDad>0?'AED '+bFN(iOweDad):'✓ Clear');
+  const netLabel=net>0?`Nafeesa owes me AED ${bFN(net)}`:net<0?`I owe Nafeesa AED ${bFN(-net)}`:'✓ Balanced';
+  s('ft-net',netLabel);
+}
+
+function renderSummary(){
+  const r=bRt();
+  const{iOweDad,iOweNafeesa,nafOwesMe,net}=calcBalances();
+  const total=bRows.reduce((s,x)=>s+(parseFloat(x.aed)||0),0);
+  const paid=bRows.reduce((s,x)=>s+(parseFloat(x.paid_aed)||0),0);
+  const dadRows=bRows.filter(x=>x.paidBy==='Dad');
+  const dadTotal=dadRows.reduce((s,x)=>s+(parseFloat(x.aed)||0),0);
+  const dadPaidBack=dadRows.reduce((s,x)=>s+(parseFloat(x.paid_aed)||0),0);
+  const meRows=bRows.filter(x=>x.paidBy==='Me');
+  const mePaid=meRows.reduce((s,x)=>s+(parseFloat(x.aed)||0),0);
+  const nafShareFromMe=bRows.filter(x=>x.paidBy==='Me').reduce((s,x)=>s+(parseFloat(x.naf_share)||0),0);
+  const nafRows=bRows.filter(x=>x.paidBy==='Nafeesa');
+  const nafPaid=nafRows.reduce((s,x)=>s+(parseFloat(x.aed)||0),0);
+  const myShareFromNaf=bRows.filter(x=>x.paidBy==='Nafeesa').reduce((s,x)=>{
+    const me=parseFloat(x.me_share)||0,hasSplit=me>0||(parseFloat(x.naf_share)||0)>0;
+    return s+(hasSplit?me:(parseFloat(x.aed)||0)-(parseFloat(x.paid_aed)||0));
+  },0);
+  function L(lbl,val,col='',sub=''){return`<div class="sline"><span class="l">${lbl}</span><div><div class="v" style="color:${col||'var(--ink)'}">${val!=null?bFA(val):'—'}</div>${sub?`<div class="s">${sub}</div>`:val?`<div class="s">${bFAi(val*r)}</div>`:''}</div></div>`;}
+  function Lt(lbl,val,col=''){return`<div class="sline tint"><span class="l" style="font-size:12px;color:var(--ink3)">${lbl}</span><div class="v" style="font-size:12px;color:${col||'var(--ink3)'}">${bFA(val)}</div></div>`;}
+  document.getElementById('sum-content').innerHTML=`
+  <div class="scard">
+    <div class="scard-head"><h3 style="color:var(--terra)">Overall</h3><span class="sbig" style="color:var(--terra)">AED ${bFN(total)}</span></div>
+    ${L('Total trip cost',total)}${L('All paid back so far',paid,'var(--green)')}${L('Still outstanding',total-paid,total-paid>0?'var(--terra)':'')}
+  </div>
+  <div class="scard">
+    <div class="scard-head"><h3 style="color:var(--green)">🙋 I paid</h3><span class="sbig" style="color:var(--green)">AED ${bFN(mePaid)}</span></div>
+    ${L('Total I paid out',mePaid,'var(--green)')}${nafShareFromMe>0?L("Nafeesa's share from what I paid",nafShareFromMe,'var(--naf)','She owes me this'):''}
+    ${meRows.map(x=>Lt((x.desc||'(unnamed)'),parseFloat(x.aed)||0,'var(--green)')).join('')}
+  </div>
+  <div class="scard">
+    <div class="scard-head"><h3 style="color:var(--gold)">💳 Dad paid</h3><span class="sbig" style="color:var(--gold)">AED ${bFN(dadTotal)}</span></div>
+    ${L("Total on Dad's card",dadTotal)}${L('Already paid back to Dad',dadPaidBack,'var(--green)')}${L('I still owe Dad',iOweDad,iOweDad>0?'var(--terra)':'var(--green)',iOweDad>0?'':'All settled!')}
+    ${dadRows.map(x=>Lt((x.desc||'(unnamed)'),parseFloat(x.aed)||0,'var(--gold)')).join('')}
+  </div>
+  <div class="scard">
+    <div class="scard-head"><h3 style="color:var(--naf)">👩 Nafeesa paid</h3><span class="sbig" style="color:var(--naf)">AED ${bFN(nafPaid)}</span></div>
+    ${L('Total Nafeesa paid out',nafPaid)}${myShareFromNaf>0?L('My share from what Nafeesa paid',myShareFromNaf,'var(--terra)','I owe Nafeesa this'):''}
+    ${nafRows.map(x=>{const me2=parseFloat(x.me_share)||0;const hasSp=me2>0||(parseFloat(x.naf_share)||0)>0;const owing=hasSp?me2:Math.max(0,(parseFloat(x.aed)||0)-(parseFloat(x.paid_aed)||0));return Lt((x.desc||'(unnamed)')+` — my share AED ${bFN(owing)}`,parseFloat(x.aed)||0,'var(--naf)');}).join('')}
+  </div>
+  <div class="scard" style="border-color:var(--naf)">
+    <div class="scard-head" style="background:var(--naf-bg)"><h3 style="color:var(--naf)">⚖️ Me &amp; Nafeesa</h3><span class="sbig" style="color:${net>=0?'var(--green)':'var(--terra)'}">${net>=0?'+':''}AED ${bFN(net)}</span></div>
+    ${L('Nafeesa owes me (from splits)',nafOwesMe,'var(--naf)')}${L('I owe Nafeesa (from splits)',iOweNafeesa,'var(--terra)')}
+    <div class="sline" style="background:${net>=0?'var(--green-bg)':'var(--terra-bg)'}">
+      <span class="l" style="font-weight:600">${net>=0?'Nafeesa owes me NET':'I owe Nafeesa NET'}</span>
+      <div><div class="v" style="color:${net>=0?'var(--green)':'var(--terra)'};font-size:15px">AED ${bFN(Math.abs(net))}</div><div class="s">${bFAi(Math.abs(net)*r)}</div></div>
+    </div>
+  </div>
+  <div class="bl-card">
+    <h3>The bottom line</h3>
+    <div class="bl-grid">
+      <div class="bli"><div class="l">I owe Dad</div><div class="v">AED ${bFN(iOweDad)}</div><div class="s">${bFAi(iOweDad*r)}</div></div>
+      <div class="bli ${net>0?'highlight':''}"><div class="l">${net>=0?'Nafeesa owes me':'I owe Nafeesa'}</div><div class="v">AED ${bFN(Math.abs(net))}</div><div class="s">${bFAi(Math.abs(net)*r)}</div></div>
+      <div class="bli"><div class="l">I paid out</div><div class="v">AED ${bFN(mePaid)}</div><div class="s">${bFAi(mePaid*r)}</div></div>
+      <div class="bli highlight"><div class="l">After settling up</div><div class="v">${net-iOweDad>=0?'+':''}AED ${bFN(net-iOweDad)}</div><div class="s">${net-iOweDad>=0?'In the green ✓':'Short'}</div></div>
+    </div>
+  </div>`;
+}
+
+// ─── BUDGET EVENTS ────────────────────────────────────
+document.getElementById('rows').addEventListener('input',e=>{
+  const el=e.target,id=parseInt(el.dataset.id),field=el.dataset.field;
+  if(!field||isNaN(id))return;
+  const row=bRows.find(r=>r.id===id);if(!row)return;
+  const nums=['aed','paid_aed','me_share','naf_share'];
+  row[field]=nums.includes(field)?(parseFloat(el.value)||0):el.value;
+  budgetDirty();patchCard(id);
+});
+document.getElementById('rows').addEventListener('change',e=>{
+  const el=e.target,id=parseInt(el.dataset.id),field=el.dataset.field;
+  if(!field||isNaN(id))return;
+  const row=bRows.find(r=>r.id===id);if(!row)return;
+  row[field]=el.value;budgetDirty();patchCard(id);
+});
+document.getElementById('rows').addEventListener('click',e=>{
+  const del=e.target.closest('[data-del]');
+  if(del){if(confirm('Remove this item?')){bRows=bRows.filter(r=>r.id!==parseInt(del.dataset.del));budgetDirty();fullRender();}return;}
+  const tog=e.target.closest('[data-toggle]');
+  if(tog){const id=parseInt(tog.dataset.toggle);const body=document.getElementById(`split-${id}`);if(body){const open=body.classList.toggle('open');tog.classList.toggle('open',open);}}
+});
+document.getElementById('filter-bar').addEventListener('click',e=>{
+  const p=e.target.closest('.pill');if(!p)return;
+  activeFilter=p.dataset.filter;
+  document.querySelectorAll('.pill').forEach(x=>x.classList.toggle('active',x.dataset.filter===activeFilter));
+  const fl={All:'All expenses',Flights:'✈ Flights',Accommodation:'🏨 Accommodation',Food:'🍜 Food',Transport:'🛵 Transport',Activities:'🌊 Activities','Visa/Fees':'📋 Fees & Visa',Shopping:'🛍 Shopping',Other:'Other'};
+  document.getElementById('filter-label').textContent=fl[activeFilter]||activeFilter;
+  document.querySelectorAll('[data-card]').forEach(card=>{
+    const row=bRows.find(r=>r.id===parseInt(card.dataset.card));
+    card.classList.toggle('hidden',activeFilter!=='All'&&(!row||row.cat!==activeFilter));
+  });
+});
+document.querySelectorAll('.btab').forEach(t=>t.addEventListener('click',()=>{
+  const name=t.dataset.btab;
+  document.querySelectorAll('.btab').forEach(x=>x.classList.toggle('active',x.dataset.btab===name));
+  document.querySelectorAll('.bpage').forEach(p=>p.classList.toggle('active',p.id==='bpage-'+name));
+  if(name==='summary')renderSummary();
+}));
+document.getElementById('add-btn').addEventListener('click',()=>{
+  bRows.push({id:bNextId++,desc:'',cat:'Other',paidBy:'Me',aed:0,paid_aed:0,naf_share:0,me_share:0});
+  budgetDirty();fullRender();
+  setTimeout(()=>{const is=document.querySelectorAll('.row-desc');if(is.length)is[is.length-1].focus();},60);
+});
+document.getElementById('rate').addEventListener('input',()=>{budgetDirty();fullRender();});
+
+// ─── INIT ─────────────────────────────────────────────
+load();
+buildItinerary();
+buildPacking();
+buildWardrobe();
+buildHalal();
+buildPlaces();
+buildPretrip();
+updateProg();
+
+if(!budgetLoad()){
+  bRows=[
+    {id:0,desc:'Flight tickets',cat:'Flights',paidBy:'Me',aed:1800,paid_aed:1800,naf_share:0,me_share:0},
+    {id:1,desc:'Hotel (5 nights)',cat:'Accommodation',paidBy:'Dad',aed:1200,paid_aed:0,naf_share:600,me_share:600},
+    {id:2,desc:'E-visa fee',cat:'Visa/Fees',paidBy:'Me',aed:120,paid_aed:120,naf_share:0,me_share:0},
+    {id:3,desc:'Tour guide',cat:'Activities',paidBy:'Me',aed:450,paid_aed:0,naf_share:225,me_share:225},
+    {id:4,desc:'Transport day 1',cat:'Transport',paidBy:'Nafeesa',aed:80,paid_aed:0,naf_share:0,me_share:40},
+  ];bNextId=5;
+}
+fullRender();
+</script>
+</body>
+</html>
